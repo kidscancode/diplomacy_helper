@@ -1,0 +1,13 @@
+extends Node
+
+enum NATIONS {AUSTRIA, ENGLAND, FRANCE, GERMANY, ITALY, RUSSIA, TURKEY}
+var COLORS = {ENGLAND: Color8(28, 37, 200),
+			  FRANCE: Color8(52, 190, 230),
+			  GERMANY: Color8(247, 150, 24),
+			  AUSTRIA: Color8(140, 83, 214),
+			  ITALY: Color8(41, 175, 36),
+			  RUSSIA: Color8(226, 36, 36),
+			  TURKEY: Color8(234, 227, 32)}
+			
+enum MOVES {MOVE, HOLD, SUPPORT, CONVOY, NONE, DISBAND}
+enum UNIT_TYPES {ARMY, FLEET}

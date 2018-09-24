@@ -1,0 +1,678 @@
+[gd_scene load_steps=64 format=2]
+
+[ext_resource path="res://assets/Diplomacy_map.png" type="Texture" id=1]
+[ext_resource path="res://Map.gd" type="Script" id=2]
+[ext_resource path="res://Region.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/map_regions/BUD.png" type="Texture" id=4]
+[ext_resource path="res://assets/map_regions/SER.png" type="Texture" id=5]
+[ext_resource path="res://assets/map_regions/BUL.png" type="Texture" id=6]
+[ext_resource path="res://assets/map_regions/ALB.png" type="Texture" id=7]
+[ext_resource path="res://assets/map_regions/TRI.png" type="Texture" id=8]
+[ext_resource path="res://assets/map_regions/GRE.png" type="Texture" id=9]
+[ext_resource path="res://assets/map_regions/CON.png" type="Texture" id=10]
+[ext_resource path="res://assets/map_regions/SMY.png" type="Texture" id=11]
+[ext_resource path="res://assets/map_regions/ANK.png" type="Texture" id=12]
+[ext_resource path="res://assets/map_regions/SYR.png" type="Texture" id=13]
+[ext_resource path="res://assets/map_regions/ARM.png" type="Texture" id=14]
+[ext_resource path="res://assets/map_regions/SEV.png" type="Texture" id=15]
+[ext_resource path="res://assets/map_regions/UKR.png" type="Texture" id=16]
+[ext_resource path="res://assets/map_regions/GAL.png" type="Texture" id=17]
+[ext_resource path="res://assets/map_regions/VIE.png" type="Texture" id=18]
+[ext_resource path="res://assets/map_regions/BOH.png" type="Texture" id=19]
+[ext_resource path="res://assets/map_regions/TYR.png" type="Texture" id=20]
+[ext_resource path="res://assets/map_regions/MUN.png" type="Texture" id=21]
+[ext_resource path="res://assets/map_regions/SIL.png" type="Texture" id=22]
+[ext_resource path="res://assets/map_regions/PRU.png" type="Texture" id=23]
+[ext_resource path="res://assets/map_regions/BER.png" type="Texture" id=24]
+[ext_resource path="res://assets/map_regions/DEN.png" type="Texture" id=25]
+[ext_resource path="res://assets/map_regions/HOL.png" type="Texture" id=26]
+[ext_resource path="res://assets/map_regions/KIE.png" type="Texture" id=27]
+[ext_resource path="res://assets/map_regions/RUH.png" type="Texture" id=28]
+[ext_resource path="res://assets/map_regions/BUR.png" type="Texture" id=29]
+[ext_resource path="res://assets/map_regions/BEL.png" type="Texture" id=30]
+[ext_resource path="res://assets/map_regions/LON.png" type="Texture" id=31]
+[ext_resource path="res://assets/map_regions/WAL.png" type="Texture" id=32]
+[ext_resource path="res://assets/map_regions/YOR.png" type="Texture" id=33]
+[ext_resource path="res://assets/map_regions/LVR.png" type="Texture" id=34]
+[ext_resource path="res://assets/map_regions/EDI.png" type="Texture" id=35]
+[ext_resource path="res://assets/map_regions/CLY.png" type="Texture" id=36]
+[ext_resource path="res://assets/map_regions/PIC.png" type="Texture" id=37]
+[ext_resource path="res://assets/map_regions/PAR.png" type="Texture" id=38]
+[ext_resource path="res://assets/map_regions/BRE.png" type="Texture" id=39]
+[ext_resource path="res://assets/map_regions/GAS.png" type="Texture" id=40]
+[ext_resource path="res://assets/map_regions/MAR.png" type="Texture" id=41]
+[ext_resource path="res://assets/map_regions/PIE.png" type="Texture" id=42]
+[ext_resource path="res://assets/map_regions/TUS.png" type="Texture" id=43]
+[ext_resource path="res://assets/map_regions/VEN.png" type="Texture" id=44]
+[ext_resource path="res://assets/map_regions/APU.png" type="Texture" id=45]
+[ext_resource path="res://assets/map_regions/ROM.png" type="Texture" id=46]
+[ext_resource path="res://assets/map_regions/NAP.png" type="Texture" id=47]
+[ext_resource path="res://assets/map_regions/SPA.png" type="Texture" id=48]
+[ext_resource path="res://assets/map_regions/POR.png" type="Texture" id=49]
+[ext_resource path="res://assets/map_regions/WAR.png" type="Texture" id=50]
+[ext_resource path="res://assets/map_regions/LVN.png" type="Texture" id=51]
+[ext_resource path="res://assets/map_regions/MOS.png" type="Texture" id=52]
+[ext_resource path="res://assets/map_regions/STP.png" type="Texture" id=53]
+[ext_resource path="res://assets/map_regions/FIN.png" type="Texture" id=54]
+[ext_resource path="res://assets/map_regions/SWE.png" type="Texture" id=55]
+[ext_resource path="res://assets/map_regions/NOR.png" type="Texture" id=56]
+[ext_resource path="res://Piece.tscn" type="PackedScene" id=57]
+[ext_resource path="res://Camera2D.gd" type="Script" id=58]
+[ext_resource path="res://OrderSelectMenu.tscn" type="PackedScene" id=59]
+[ext_resource path="res://ClickMenu.tscn" type="PackedScene" id=60]
+[ext_resource path="res://AddUnitWindow.tscn" type="PackedScene" id=61]
+[ext_resource path="res://RobotoBold48.tres" type="DynamicFont" id=62]
+
+[sub_resource type="Environment" id=1]
+
+background_mode = 4
+background_sky_custom_fov = 0.0
+background_color = Color( 0, 0, 0, 1 )
+background_energy = 1.0
+background_canvas_max_layer = 0
+ambient_light_color = Color( 0, 0, 0, 1 )
+ambient_light_energy = 1.0
+ambient_light_sky_contribution = 1.0
+fog_enabled = false
+fog_color = Color( 0.5, 0.6, 0.7, 1 )
+fog_sun_color = Color( 1, 0.9, 0.7, 1 )
+fog_sun_amount = 0.0
+fog_depth_enabled = true
+fog_depth_begin = 10.0
+fog_depth_curve = 1.0
+fog_transmit_enabled = false
+fog_transmit_curve = 1.0
+fog_height_enabled = false
+fog_height_min = 0.0
+fog_height_max = 100.0
+fog_height_curve = 1.0
+tonemap_mode = 0
+tonemap_exposure = 1.0
+tonemap_white = 1.0
+auto_exposure_enabled = false
+auto_exposure_scale = 0.4
+auto_exposure_min_luma = 0.05
+auto_exposure_max_luma = 8.0
+auto_exposure_speed = 0.5
+ss_reflections_enabled = false
+ss_reflections_max_steps = 64
+ss_reflections_fade_in = 0.15
+ss_reflections_fade_out = 2.0
+ss_reflections_depth_tolerance = 0.2
+ss_reflections_roughness = true
+ssao_enabled = false
+ssao_radius = 1.0
+ssao_intensity = 1.0
+ssao_radius2 = 0.0
+ssao_intensity2 = 1.0
+ssao_bias = 0.01
+ssao_light_affect = 0.0
+ssao_color = Color( 0, 0, 0, 1 )
+ssao_quality = 0
+ssao_blur = 3
+ssao_edge_sharpness = 4.0
+dof_blur_far_enabled = false
+dof_blur_far_distance = 10.0
+dof_blur_far_transition = 5.0
+dof_blur_far_amount = 0.1
+dof_blur_far_quality = 1
+dof_blur_near_enabled = false
+dof_blur_near_distance = 2.0
+dof_blur_near_transition = 1.0
+dof_blur_near_amount = 0.1
+dof_blur_near_quality = 1
+glow_enabled = true
+glow_levels/1 = true
+glow_levels/2 = true
+glow_levels/3 = false
+glow_levels/4 = false
+glow_levels/5 = false
+glow_levels/6 = false
+glow_levels/7 = false
+glow_intensity = 0.8
+glow_strength = 1.0
+glow_bloom = 0.0
+glow_blend_mode = 1
+glow_hdr_threshold = 1.0
+glow_hdr_scale = 2.0
+glow_bicubic_upscale = false
+adjustment_enabled = false
+adjustment_brightness = 1.0
+adjustment_contrast = 1.0
+adjustment_saturation = 1.0
+_sections_unfolded = [ "Background", "Glow", "Glow/levels" ]
+
+[node name="Map" type="TextureRect" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 2 )
+_sections_unfolded = [ "Mouse", "Rect", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Regions" type="Node" parent="." index="0"]
+
+editor/display_folded = true
+
+[node name="RUM" parent="Regions" index="0" instance=ExtResource( 3 )]
+
+[node name="BUD" parent="Regions" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 736.731, 736.123 )
+texture = ExtResource( 4 )
+
+[node name="SER" parent="Regions" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 725.057, 847.998 )
+texture = ExtResource( 5 )
+
+[node name="BUL" parent="Regions" index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 816.43, 859.08 )
+texture = ExtResource( 6 )
+
+[node name="ALB" parent="Regions" index="4" instance=ExtResource( 3 )]
+
+position = Vector2( 708.078, 898.169 )
+texture = ExtResource( 7 )
+
+[node name="TRI" parent="Regions" index="5" instance=ExtResource( 3 )]
+
+position = Vector2( 638.815, 797.704 )
+texture = ExtResource( 8 )
+
+[node name="GRE" parent="Regions" index="6" instance=ExtResource( 3 )]
+
+position = Vector2( 757.797, 957.489 )
+texture = ExtResource( 9 )
+
+[node name="CON" parent="Regions" index="7" instance=ExtResource( 3 )]
+
+position = Vector2( 892.551, 905.713 )
+texture = ExtResource( 10 )
+
+[node name="SMY" parent="Regions" index="8" instance=ExtResource( 3 )]
+
+position = Vector2( 990.616, 952.003 )
+texture = ExtResource( 11 )
+
+[node name="ANK" parent="Regions" index="9" instance=ExtResource( 3 )]
+
+position = Vector2( 1027.31, 893.369 )
+texture = ExtResource( 12 )
+
+[node name="SYR" parent="Regions" index="10" instance=ExtResource( 3 )]
+
+position = Vector2( 1238.12, 963.639 )
+texture = ExtResource( 13 )
+
+[node name="ARM" parent="Regions" index="11" instance=ExtResource( 3 )]
+
+position = Vector2( 1240.69, 880.943 )
+texture = ExtResource( 14 )
+
+[node name="SEV" parent="Regions" index="12" instance=ExtResource( 3 )]
+
+position = Vector2( 1093.07, 701.186 )
+texture = ExtResource( 15 )
+
+[node name="UKR" parent="Regions" index="13" instance=ExtResource( 3 )]
+
+position = Vector2( 868.674, 649.208 )
+texture = ExtResource( 16 )
+
+[node name="GAL" parent="Regions" index="14" instance=ExtResource( 3 )]
+
+position = Vector2( 749.764, 678.821 )
+texture = ExtResource( 17 )
+
+[node name="VIE" parent="Regions" index="15" instance=ExtResource( 3 )]
+
+position = Vector2( 657.072, 704.956 )
+texture = ExtResource( 18 )
+
+[node name="BOH" parent="Regions" index="16" instance=ExtResource( 3 )]
+
+position = Vector2( 622.557, 657.388 )
+texture = ExtResource( 19 )
+
+[node name="TYR" parent="Regions" index="17" instance=ExtResource( 3 )]
+
+position = Vector2( 561.833, 726.006 )
+texture = ExtResource( 20 )
+
+[node name="MUN" parent="Regions" index="18" instance=ExtResource( 3 )]
+
+position = Vector2( 527.524, 659.21 )
+texture = ExtResource( 21 )
+
+[node name="SIL" parent="Regions" index="19" instance=ExtResource( 3 )]
+
+position = Vector2( 635.319, 619.682 )
+texture = ExtResource( 22 )
+
+[node name="PRU" parent="Regions" index="20" instance=ExtResource( 3 )]
+
+position = Vector2( 686.817, 540.094 )
+texture = ExtResource( 23 )
+
+[node name="BER" parent="Regions" index="21" instance=ExtResource( 3 )]
+
+position = Vector2( 590.508, 566.512 )
+texture = ExtResource( 24 )
+
+[node name="DEN" parent="Regions" index="22" instance=ExtResource( 3 )]
+
+position = Vector2( 557.094, 476.147 )
+texture = ExtResource( 25 )
+
+[node name="HOL" parent="Regions" index="23" instance=ExtResource( 3 )]
+
+position = Vector2( 459.087, 576.209 )
+texture = ExtResource( 26 )
+
+[node name="KIE" parent="Regions" index="24" instance=ExtResource( 3 )]
+
+position = Vector2( 516.605, 573.534 )
+texture = ExtResource( 27 )
+
+[node name="RUH" parent="Regions" index="25" instance=ExtResource( 3 )]
+
+position = Vector2( 491.524, 630.717 )
+texture = ExtResource( 28 )
+
+[node name="BUR" parent="Regions" index="26" instance=ExtResource( 3 )]
+
+position = Vector2( 412.27, 702.28 )
+texture = ExtResource( 29 )
+
+[node name="BEL" parent="Regions" index="27" instance=ExtResource( 3 )]
+
+position = Vector2( 421.634, 612.325 )
+texture = ExtResource( 30 )
+
+[node name="LON" parent="Regions" index="28" instance=ExtResource( 3 )]
+
+position = Vector2( 368.297, 556.322 )
+texture = ExtResource( 31 )
+
+[node name="WAL" parent="Regions" index="29" instance=ExtResource( 3 )]
+
+position = Vector2( 305.627, 537.321 )
+texture = ExtResource( 32 )
+
+[node name="YOR" parent="Regions" index="30" instance=ExtResource( 3 )]
+
+position = Vector2( 367.297, 497.319 )
+texture = ExtResource( 33 )
+
+[node name="LVR" parent="Regions" index="31" instance=ExtResource( 3 )]
+
+position = Vector2( 330.295, 466.317 )
+texture = ExtResource( 34 )
+
+[node name="EDI" parent="Regions" index="32" instance=ExtResource( 3 )]
+
+position = Vector2( 362.63, 406.98 )
+texture = ExtResource( 35 )
+
+[node name="CLY" parent="Regions" index="33" instance=ExtResource( 3 )]
+
+position = Vector2( 338.296, 384.979 )
+texture = ExtResource( 36 )
+
+[node name="PIC" parent="Regions" index="34" instance=ExtResource( 3 )]
+
+position = Vector2( 385.518, 627.373 )
+texture = ExtResource( 37 )
+
+[node name="PAR" parent="Regions" index="35" instance=ExtResource( 3 )]
+
+position = Vector2( 379.164, 679.206 )
+texture = ExtResource( 38 )
+
+[node name="BRE" parent="Regions" index="36" instance=ExtResource( 3 )]
+
+position = Vector2( 301.248, 656.801 )
+texture = ExtResource( 39 )
+
+[node name="GAS" parent="Regions" index="37" instance=ExtResource( 3 )]
+
+position = Vector2( 325.325, 754.113 )
+texture = ExtResource( 40 )
+
+[node name="MAR" parent="Regions" index="38" instance=ExtResource( 3 )]
+
+position = Vector2( 395.237, 779.355 )
+texture = ExtResource( 41 )
+
+[node name="PIE" parent="Regions" index="39" instance=ExtResource( 3 )]
+
+position = Vector2( 486.529, 776.133 )
+texture = ExtResource( 42 )
+
+[node name="TUS" parent="Regions" index="40" instance=ExtResource( 3 )]
+
+position = Vector2( 532.712, 827.328 )
+texture = ExtResource( 43 )
+
+[node name="VEN" parent="Regions" index="41" instance=ExtResource( 3 )]
+
+position = Vector2( 547.39, 808.353 )
+texture = ExtResource( 44 )
+
+[node name="APU" parent="Regions" index="42" instance=ExtResource( 3 )]
+
+position = Vector2( 626.869, 894.992 )
+texture = ExtResource( 45 )
+
+[node name="ROM" parent="Regions" index="43" instance=ExtResource( 3 )]
+
+position = Vector2( 560.279, 867.067 )
+texture = ExtResource( 46 )
+
+[node name="NAP" parent="Regions" index="44" instance=ExtResource( 3 )]
+
+position = Vector2( 610.758, 939.027 )
+texture = ExtResource( 47 )
+
+[node name="SPA" parent="Regions" index="45" instance=ExtResource( 3 )]
+
+position = Vector2( 236.074, 837.935 )
+texture = ExtResource( 48 )
+
+[node name="POR" parent="Regions" index="46" instance=ExtResource( 3 )]
+
+position = Vector2( 125.941, 836.523 )
+texture = ExtResource( 49 )
+
+[node name="WAR" parent="Regions" index="47" instance=ExtResource( 3 )]
+
+position = Vector2( 733.644, 593.868 )
+texture = ExtResource( 50 )
+
+[node name="LVN" parent="Regions" index="48" instance=ExtResource( 3 )]
+
+position = Vector2( 778.43, 480.662 )
+texture = ExtResource( 51 )
+
+[node name="MOS" parent="Regions" index="49" instance=ExtResource( 3 )]
+
+position = Vector2( 1099.9, 464.905 )
+texture = ExtResource( 52 )
+
+[node name="STP" parent="Regions" index="50" instance=ExtResource( 3 )]
+
+position = Vector2( 1089.17, 227.644 )
+texture = ExtResource( 53 )
+
+[node name="FIN" parent="Regions" index="51" instance=ExtResource( 3 )]
+
+position = Vector2( 777.209, 234.774 )
+texture = ExtResource( 54 )
+
+[node name="SWE" parent="Regions" index="52" instance=ExtResource( 3 )]
+
+position = Vector2( 664.523, 315.661 )
+texture = ExtResource( 55 )
+
+[node name="NOR" parent="Regions" index="53" instance=ExtResource( 3 )]
+
+position = Vector2( 654.643, 240.022 )
+texture = ExtResource( 56 )
+
+[node name="Pieces" type="Node" parent="." index="1"]
+
+editor/display_folded = true
+
+[node name="Piece" parent="Pieces" index="0" instance=ExtResource( 57 )]
+
+position = Vector2( 576.812, 566.267 )
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
+nation = 3
+
+[node name="Piece9" parent="Pieces" index="1" instance=ExtResource( 57 )]
+
+position = Vector2( 531.923, 634.304 )
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
+nation = 3
+
+[node name="Piece10" parent="Pieces" index="2" instance=ExtResource( 57 )]
+
+position = Vector2( 507.338, 529.551 )
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
+nation = 3
+type = 1
+
+[node name="Piece2" parent="Pieces" index="3" instance=ExtResource( 57 )]
+
+position = Vector2( 901.951, 499.414 )
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
+nation = 5
+
+[node name="Piece20" parent="Pieces" index="4" instance=ExtResource( 57 )]
+
+position = Vector2( 733.063, 584.927 )
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
+nation = 5
+
+[node name="Piece21" parent="Pieces" index="5" instance=ExtResource( 57 )]
+
+position = Vector2( 835.963, 386.734 )
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
+nation = 5
+type = 1
+
+[node name="Piece22" parent="Pieces" index="6" instance=ExtResource( 57 )]
+
+position = Vector2( 977.507, 734.868 )
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
+nation = 5
+type = 1
+
+[node name="Piece3" parent="Pieces" index="7" instance=ExtResource( 57 )]
+
+position = Vector2( 540.469, 839.832 )
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
+nation = 4
+
+[node name="Piece16" parent="Pieces" index="8" instance=ExtResource( 57 )]
+
+position = Vector2( 525.831, 769.627 )
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
+nation = 4
+
+[node name="Piece17" parent="Pieces" index="9" instance=ExtResource( 57 )]
+
+position = Vector2( 623.178, 931.043 )
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
+nation = 4
+type = 1
+
+[node name="Piece4" parent="Pieces" index="10" instance=ExtResource( 57 )]
+
+position = Vector2( 896.231, 902.154 )
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
+nation = 6
+
+[node name="Piece18" parent="Pieces" index="11" instance=ExtResource( 57 )]
+
+position = Vector2( 976.399, 949.186 )
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
+nation = 6
+
+[node name="Piece19" parent="Pieces" index="12" instance=ExtResource( 57 )]
+
+position = Vector2( 996.708, 861.536 )
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
+nation = 6
+type = 1
+
+[node name="Piece5" parent="Pieces" index="13" instance=ExtResource( 57 )]
+
+position = Vector2( 351.063, 541.914 )
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
+type = 1
+
+[node name="Piece8" parent="Pieces" index="14" instance=ExtResource( 57 )]
+
+position = Vector2( 363.693, 385.845 )
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
+type = 1
+
+[node name="Piece11" parent="Pieces" index="15" instance=ExtResource( 57 )]
+
+position = Vector2( 332.292, 436.384 )
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
+
+[node name="Piece6" parent="Pieces" index="16" instance=ExtResource( 57 )]
+
+position = Vector2( 355.649, 653.302 )
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
+nation = 2
+
+[node name="Piece12" parent="Pieces" index="17" instance=ExtResource( 57 )]
+
+position = Vector2( 418.497, 756.94 )
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
+nation = 2
+
+[node name="Piece13" parent="Pieces" index="18" instance=ExtResource( 57 )]
+
+position = Vector2( 280.926, 617.658 )
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
+nation = 2
+type = 1
+
+[node name="Piece7" parent="Pieces" index="19" instance=ExtResource( 57 )]
+
+position = Vector2( 690.521, 740.383 )
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
+nation = 0
+
+[node name="Piece14" parent="Pieces" index="20" instance=ExtResource( 57 )]
+
+position = Vector2( 646.026, 687.7 )
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
+nation = 0
+
+[node name="Piece15" parent="Pieces" index="21" instance=ExtResource( 57 )]
+
+position = Vector2( 624.438, 798.104 )
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
+nation = 0
+type = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2"]
+
+environment = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="." index="3"]
+
+position = Vector2( 960, 540 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+script = ExtResource( 58 )
+_sections_unfolded = [ "Limit", "Transform" ]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="4"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="OrderSelectMenu" parent="CanvasLayer" index="0" instance=ExtResource( 59 )]
+
+visible = false
+margin_left = -11.0
+margin_top = -14.0
+margin_right = 108.0
+margin_bottom = 110.0
+
+[node name="ClickMenu" parent="CanvasLayer" index="1" instance=ExtResource( 60 )]
+
+visible = false
+
+[node name="AddUnitWindow" parent="CanvasLayer" index="2" instance=ExtResource( 61 )]
+
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" index="3"]
+
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -468.0
+margin_bottom = -1006.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 468.0
+margin_bottom = 57.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 62 )
+text = "Year: 1901 (Spring)"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Grow Direction", "custom_fonts" ]
+
+[connection signal="id_pressed" from="CanvasLayer/OrderSelectMenu" to="." method="_on_OrderSelectMenu_id_pressed"]
+
+[connection signal="new_unit_menu" from="CanvasLayer/ClickMenu" to="." method="_on_ClickMenu_new_unit_menu"]
+
+[connection signal="add_unit" from="CanvasLayer/AddUnitWindow" to="." method="_on_AddUnitWindow_add_unit"]
+
+

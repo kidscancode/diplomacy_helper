@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Piece.gd" type="Script" id=1]
+[ext_resource path="res://assets/piecesWhite.png" type="Texture" id=2]
+
+[sub_resource type="Shader" id=1]
+
+code = "shader_type canvas_item;
+uniform float outline_width = 2.0;
+uniform vec4 outline_color: hint_color;
+
+void fragment(){
+	vec4 col = texture(TEXTURE, UV);
+	vec2 ps = TEXTURE_PIXEL_SIZE;
+	float a;
+	float maxa = col.a;
+	float mina = col.a;
+
+	a = texture(TEXTURE, UV + vec2(0, -outline_width)*ps).a;
+	maxa = max(a, maxa); 
+	mina = min(a, mina);
+	
+	a = texture(TEXTURE, UV + vec2(0, outline_width)*ps).a;
+	maxa = max(a, maxa); 
+	mina = min(a, mina);
+	
+	a = texture(TEXTURE, UV + vec2(-outline_width,0)*ps).a;
+	maxa = max(a, maxa); 
+	mina = min(a, mina);
+	
+	a = texture(TEXTURE, UV + vec2(outline_width, 0)*ps).a;
+	maxa = max(a, maxa); 
+	mina = min(a, mina);
+	
+	COLOR = mix(col, outline_color, maxa-mina);
+	}"
+
+[sub_resource type="ShaderMaterial" id=2]
+
+render_priority = 0
+shader = SubResource( 1 )
+shader_param/outline_width = 0.0
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10.937, 21.8138 )
+
+[node name="Piece" type="Area2D"]
+
+position = Vector2( 23.0376, 34.168 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Material", "Pickable", "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+nation = 1
+type = 0
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+modulate = Color( 0.109804, 0.145098, 0.784314, 1 )
+material = SubResource( 2 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 147, 71, 26, 50 )
+_sections_unfolded = [ "Material", "Region", "Transform", "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+visible = false
+shape = SubResource( 3 )
+
+[connection signal="input_event" from="." to="." method="_on_Piece_input_event"]
+
+
