@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Piece.gd" type="Script" id=1]
 [ext_resource path="res://assets/piecesWhite.png" type="Texture" id=2]
@@ -46,7 +46,13 @@ _sections_unfolded = [ "shader_param" ]
 [sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10.937, 21.8138 )
+extents = Vector2( 10.6327, 17.7029 )
+
+[sub_resource type="SegmentShape2D" id=4]
+
+custom_solver_bias = 0.0
+a = Vector2( 17, -7 )
+b = Vector2( 17, 7 )
 
 [node name="Piece" type="Area2D"]
 
@@ -63,8 +69,6 @@ _sections_unfolded = [ "Material", "Pickable", "Region" ]
 __meta__ = {
 "_edit_group_": true
 }
-nation = 1
-type = 0
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -73,13 +77,32 @@ material = SubResource( 2 )
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 147, 71, 26, 50 )
+region_rect = Rect2( 144, 132, 33, 56 )
 _sections_unfolded = [ "Material", "Region", "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-visible = false
 shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Footprint" type="Area2D" parent="." index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Audio Bus", "Collision" ]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Footprint" index="0"]
+
+rotation = 1.5708
+shape = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="input_event" from="." to="." method="_on_Piece_input_event"]
 

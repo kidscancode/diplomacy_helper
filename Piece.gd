@@ -1,24 +1,25 @@
-tool
 extends Area2D
 
 signal clicked
 
 enum NATIONS {AUSTRIA, ENGLAND, FRANCE, GERMANY, ITALY, RUSSIA, TURKEY}
-var COLORS = {ENGLAND: Color8(28, 37, 200),
-			  FRANCE: Color8(52, 190, 230),
-			  GERMANY: Color8(247, 150, 24),
-			  AUSTRIA: Color8(140, 83, 214),
-			  ITALY: Color8(41, 175, 36),
-			  RUSSIA: Color8(226, 36, 36),
-			  TURKEY: Color8(234, 227, 32)}
+#var COLORS = {ENGLAND: Color8(28, 37, 250),
+#			  FRANCE: Color8(52, 190, 230),
+#			  GERMANY: Color8(247, 150, 24),
+#			  AUSTRIA: Color8(140, 83, 214),
+#			  ITALY: Color8(41, 175, 36),
+#			  RUSSIA: Color8(226, 36, 36),
+#			  TURKEY: Color8(234, 227, 32)}
 enum TYPES {ARMY, FLEET}
 enum MOVES {MOVE, HOLD, SUPPORT, CONVOY, NONE, DISBAND}
 
 var active = false setget set_active
-export (NATIONS) var nation = ENGLAND setget set_nation
-export (TYPES) var type = ARMY setget set_type
-var textures = {ARMY: Rect2(147, 71, 26, 50),
-				FLEET: Rect2(909, 74, 37, 46)}
+#export (NATIONS) var nation = ENGLAND setget set_nation
+#export (TYPES) var type = ARMY setget set_type
+var nation = ENGLAND setget set_nation
+var type = ARMY setget set_type
+var textures = {ARMY: Rect2(144, 132, 33, 56),
+				FLEET: Rect2(907, 134, 42, 53)}
 var move = null setget set_move
 var target = null setget set_target
 var start_position = null
@@ -42,11 +43,10 @@ func set_target(_target):
 	update()
 	
 func set_nation(_nation):
-	#print("set nation to ", nation)
 	nation = _nation
 	if !Engine.editor_hint:
 		yield(self, 'tree_entered')
-	$Sprite.modulate = COLORS[nation]
+	$Sprite.modulate = CONSTANTS.COLORS[nation]
 	
 func set_type(_type):
 	type = _type
@@ -88,18 +88,20 @@ func _draw():
 			for a in range(7):
 				points.append(r.rotated(a * 2*PI/6))
 			#draw_polygon(points, PoolColorArray([COLORS[nation]]))
-			draw_polyline(points, COLORS[nation], 4.0, true)
+			draw_polyline(points, CONSTANTS.COLORS[nation], 4.0, true)
 		MOVE:
 			if target:
 				var dest = target - global_position
-				var color = COLORS[nation]
-				color.a -= 0.25
+				var color = CONSTANTS.COLORS[nation]
+				#color.a -= 0.25
+				#color = Color8(255, 0, 0)
 				draw_arrow(Vector2() + dest.normalized() * 10, dest, 10, color)
 		SUPPORT:
 			if target:
 				var dest = target - global_position
-				var color = COLORS[nation]
-				color /= 1.5
+				var color = CONSTANTS.COLORS[nation]
+				#color /= 1.5
+				#color = Color8(0, 255, 0)
 				draw_arrow_outline(Vector2() + dest.normalized() * 10, dest, 10, color)
 					
 func draw_arrow(start, end, size, color):

@@ -10,7 +10,7 @@ config_version=3
 
 [application]
 
-config/name="dipl_map"
+config/name="Diplomacy Tool"
 run/main_scene="res://Map.tscn"
 config/icon="res://icon.png"
 
