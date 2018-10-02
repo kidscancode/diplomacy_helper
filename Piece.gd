@@ -92,17 +92,17 @@ func _draw():
 		MOVE:
 			if target:
 				var dest = target - global_position
-				var color = CONSTANTS.COLORS[nation]
+				var color = CONSTANTS.COLORS[nation].darkened(0.4)
 				#color.a -= 0.25
 				#color = Color8(255, 0, 0)
 				draw_arrow(Vector2() + dest.normalized() * 10, dest, 10, color)
 		SUPPORT:
 			if target:
 				var dest = target - global_position
-				var color = CONSTANTS.COLORS[nation]
+				var color = CONSTANTS.COLORS[nation].darkened(0.4)
 				#color /= 1.5
 				#color = Color8(0, 255, 0)
-				draw_arrow_outline(Vector2() + dest.normalized() * 10, dest, 10, color)
+				draw_arrow_dashed(Vector2() + dest.normalized() * 10, dest, 8, color)
 					
 func draw_arrow(start, end, size, color):
 	var dir = (end - start).normalized()
@@ -112,6 +112,23 @@ func draw_arrow(start, end, size, color):
 	var c = end + dir.rotated(4*PI/3) * size
 	draw_polygon(PoolVector2Array([a, b, c]), PoolColorArray([color]))
 
+func draw_arrow_dashed(start, end, size, color):
+	var dir = (end - start).normalized()
+	var dist = (end - start).length()
+	var dash = dir * dist / 10
+	var gap = dir * dist / 20
+	var l = 0
+	var pos = start
+	var points = PoolVector2Array()
+	while l < (end - start).length():
+		draw_polyline(PoolVector2Array([pos, pos + dash]), color, size, true)
+		pos += dash + gap
+		l += dash.length() + gap.length()
+	var a = end + dir * size/2 
+	var b = end + dir.rotated(2*PI/3) * size
+	var c = end + dir.rotated(4*PI/3) * size
+	draw_polygon(PoolVector2Array([a, b, c]), PoolColorArray([color]))
+		
 func draw_arrow_outline(start, end, size, color):
 	var points = PoolVector2Array()
 	var dir = (end - start).normalized()

@@ -54,7 +54,7 @@ custom_solver_bias = 0.0
 a = Vector2( 17, -7 )
 b = Vector2( 17, 7 )
 
-[node name="Piece" type="Area2D"]
+[node name="Piece" type="Area2D" index="0"]
 
 position = Vector2( 23.0376, 34.168 )
 input_pickable = true

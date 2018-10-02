@@ -11,10 +11,12 @@ enum MOVES {MOVE, HOLD, SUPPORT, CONVOY, NONE, DISBAND}
 #						CONSTANTS.NATIONS.TURKEY: ["ANK", "CON", "SMY", "ARM", "SYR"]}
 #
 onready var Piece = preload("res://Piece.tscn")
+onready var info_panel = $CanvasLayer/Panel/Info
 onready var select_menu = $CanvasLayer/OrderSelectMenu
 var selected = null
 var select_target = false
 var new_pos = null
+
 
 func _ready():
 	pass
@@ -144,3 +146,14 @@ func load_state():
 func _on_ClickMenu_update_regions():
 	for region in $Regions.get_children():
 		region.update()
+	var score = {CONSTANTS.AUSTRIA: 0, CONSTANTS.ENGLAND: 0,
+			 	CONSTANTS.FRANCE: 0, CONSTANTS.GERMANY: 0,
+			 	CONSTANTS.ITALY: 0, CONSTANTS.RUSSIA: 0,
+			 	CONSTANTS.TURKEY: 0}
+	# count score
+	for sup in CONSTANTS.SUPPLY_CENTERS:
+		var val = $Regions.get_node(sup).control
+		if val >= 0:
+			score[val] += 1
+	for n in score.keys():
+		info_panel.get_node(str(n)).get_node("Num").text = str(score[n])

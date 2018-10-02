@@ -11,13 +11,17 @@ enum NATIONS {AUSTRIA, ENGLAND, FRANCE, GERMANY, ITALY, RUSSIA, TURKEY}
 
 var COLORS = {ENGLAND: Color8(92, 92, 255),
 			  FRANCE: Color8(85, 255, 255),
-			  GERMANY: Color8(85, 85, 85),
+			  GERMANY: Color8(75, 75, 75),
 			  AUSTRIA: Color8(252, 127, 0),
 			  ITALY: Color8(85, 255, 85),
 			  RUSSIA: Color8(252, 57, 31),
 			  TURKEY: Color8(255, 255, 85)}
 
-			
+var SUPPLY_CENTERS = ["BER", "MUN", "KIE", "POR", "SPA", "MAR", "PAR",
+					  "BRE", "BEL", "HOL", "LON", "LVR", "EDI", "DEN",
+					  "NOR", "SWE", "TUN", "NAP", "ROM", "VEN", "TRI",
+					  "VIE", "BUD", "SER", "BUL", "RUM", "WAR", "MOS",
+					  "STP", "SEV", "CON", "SMY", "ANK"]
 			
 enum MOVES {MOVE, HOLD, SUPPORT, CONVOY, NONE, DISBAND}
 enum UNIT_TYPES {ARMY, FLEET}

@@ -14,7 +14,6 @@ func change_control(_control):
 		self_modulate = Color(1, 1, 1)
 
 func update():
-	if has_node("Area2D"):
-		var p = $Area2D.get_overlapping_areas()
-		for u in p:
-			self.control = u.get_parent().nation
+	var p = $Area2D.get_overlapping_areas()
+	for u in p:
+		self.control = u.get_parent().nation
