@@ -2,14 +2,6 @@ extends TextureRect
 
 enum MOVES {MOVE, HOLD, SUPPORT, CONVOY, NONE, DISBAND}
 
-#var starting_regions = {CONSTANTS.NATIONS.AUSTRIA: ["VIE", "BUD", "TRI", "GAL", "BOH", "TYR"],
-#						CONSTANTS.NATIONS.ENGLAND: ["LON", "EDI", "LVR", "WAL", "YOR", "CLY"],
-#						CONSTANTS.NATIONS.FRANCE: ["PAR", "MAR", "BRE", "PIC", "BUR", "GAS"],
-#						CONSTANTS.NATIONS.GERMANY: ["BER", "MUN", "KIE", "RUH", "SIL", "PRU"],
-#						CONSTANTS.NATIONS.ITALY: ["ROM", "VEN", "NAP", "APU", "TUS", "PIE"],
-#						CONSTANTS.NATIONS.RUSSIA: ["MOS", "SEV", "STP", "WAR", "UKR", "LVN", "FIN"],
-#						CONSTANTS.NATIONS.TURKEY: ["ANK", "CON", "SMY", "ARM", "SYR"]}
-#
 onready var Piece = preload("res://Piece.tscn")
 onready var info_panel = $CanvasLayer/Panel/Info
 onready var select_menu = $CanvasLayer/OrderSelectMenu
@@ -20,11 +12,6 @@ var new_pos = null
 
 func _ready():
 	pass
-#	for piece in $Pieces.get_children():
-#		piece.connect("clicked", self, "_on_Piece_clicked")
-	# spawn pieces/set region owners
-	#spawn_start_units()
-	#set_start_owners()
 
 func add_unit(_position, _nation, _type):
 	for unit in CONSTANTS.STARTING_UNITS:
@@ -34,11 +21,6 @@ func add_unit(_position, _nation, _type):
 		p.type = _type
 		$Pieces.add_child(p)
 		p.connect("clicked", self, "_on_Piece_clicked")
-
-#func set_start_owners():
-#	for nation in starting_regions:
-#		for reg in starting_regions[nation]:
-#			get_node("Regions").get_node(reg).control = nation
 		
 func _unhandled_input(event):
 	if event.is_action_pressed('ui_select'):
@@ -57,7 +39,6 @@ func _unhandled_input(event):
 				new_pos = get_global_mouse_position()
 				$CanvasLayer/ClickMenu.rect_position = $CanvasLayer/ClickMenu.get_global_mouse_position()
 				$CanvasLayer/ClickMenu.popup()
-
 
 func _on_Piece_clicked(piece):
 	if piece.active:
@@ -83,6 +64,8 @@ func _on_OrderSelectMenu_id_pressed(ID):
 		MOVE:
 			select_target = true
 		SUPPORT:
+			select_target = true
+		CONVOY:
 			select_target = true
 		DISBAND:
 			selected.queue_free()

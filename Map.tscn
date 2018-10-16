@@ -152,7 +152,7 @@ use_filter = false
 font_data = ExtResource( 63 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Map" type="TextureRect"]
+[node name="Map" type="TextureRect" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1649,8 +1649,10 @@ anchor_left = 1.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 0.0
-margin_left = -601.0
-margin_bottom = 100.0
+margin_left = -599.0
+margin_top = 2.0
+margin_right = 2.0
+margin_bottom = 102.0
 rect_min_size = Vector2( 468, 100 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -1661,7 +1663,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 2 )
 custom_colors/background_color = Color( 0.378906, 0.0666046, 0.0666046, 0 )
-text = "Year: 1901 (Spring)"
+text = "Year: 1901 (Fall)"
 readonly = false
 highlight_current_line = false
 syntax_highlighting = false
@@ -1681,6 +1683,7 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="Panel" type="Panel" parent="CanvasLayer" index="4"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0

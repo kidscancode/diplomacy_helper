@@ -3,19 +3,10 @@ extends Area2D
 signal clicked
 
 enum NATIONS {AUSTRIA, ENGLAND, FRANCE, GERMANY, ITALY, RUSSIA, TURKEY}
-#var COLORS = {ENGLAND: Color8(28, 37, 250),
-#			  FRANCE: Color8(52, 190, 230),
-#			  GERMANY: Color8(247, 150, 24),
-#			  AUSTRIA: Color8(140, 83, 214),
-#			  ITALY: Color8(41, 175, 36),
-#			  RUSSIA: Color8(226, 36, 36),
-#			  TURKEY: Color8(234, 227, 32)}
 enum TYPES {ARMY, FLEET}
 enum MOVES {MOVE, HOLD, SUPPORT, CONVOY, NONE, DISBAND}
 
 var active = false setget set_active
-#export (NATIONS) var nation = ENGLAND setget set_nation
-#export (TYPES) var type = ARMY setget set_type
 var nation = ENGLAND setget set_nation
 var type = ARMY setget set_type
 var textures = {ARMY: Rect2(144, 132, 33, 56),
@@ -27,12 +18,6 @@ var drag_position = null
 
 func _ready():
 	modulate = Color(1, 1, 1)
-	
-#	var c = $Sprite.modulate
-#	c.r /= 2
-#	c.g /= 2
-#	c.b /= 2
-#	$Sprite.material.set_shader_param("outline_color", c)
 
 func set_move(_move):
 	move = _move
@@ -59,7 +44,7 @@ func set_active(flag):
 	emit_signal('clicked', self)
 	if active:
 		#$Sprite.material.set_shader_param("outline_width", 2.0)
-		modulate = Color(2, 2, 3)
+		modulate = Color(3, 3, 3)
 	else:
 		modulate = Color(1, 1, 1)
 		#$Sprite.material.set_shader_param("outline_width", 0.0)
@@ -87,21 +72,22 @@ func _draw():
 			var points = PoolVector2Array()
 			for a in range(7):
 				points.append(r.rotated(a * 2*PI/6))
-			#draw_polygon(points, PoolColorArray([COLORS[nation]]))
-			draw_polyline(points, CONSTANTS.COLORS[nation], 4.0, true)
+			var color = CONSTANTS.COLORS[nation].darkened(0.4)
+			draw_polyline(points, color, 4.0, true)
 		MOVE:
 			if target:
 				var dest = target - global_position
 				var color = CONSTANTS.COLORS[nation].darkened(0.4)
-				#color.a -= 0.25
-				#color = Color8(255, 0, 0)
 				draw_arrow(Vector2() + dest.normalized() * 10, dest, 10, color)
 		SUPPORT:
 			if target:
 				var dest = target - global_position
 				var color = CONSTANTS.COLORS[nation].darkened(0.4)
-				#color /= 1.5
-				#color = Color8(0, 255, 0)
+				draw_arrow_dashed(Vector2() + dest.normalized() * 10, dest, 8, color)
+		CONVOY:
+			if target:
+				var dest = target - global_position
+				var color = CONSTANTS.COLORS[nation].darkened(0.4)
 				draw_arrow_dashed(Vector2() + dest.normalized() * 10, dest, 8, color)
 					
 func draw_arrow(start, end, size, color):
@@ -113,18 +99,20 @@ func draw_arrow(start, end, size, color):
 	draw_polygon(PoolVector2Array([a, b, c]), PoolColorArray([color]))
 
 func draw_arrow_dashed(start, end, size, color):
+	# draw dashed line
 	var dir = (end - start).normalized()
 	var dist = (end - start).length()
 	var dash = dir * dist / 10
 	var gap = dir * dist / 20
-	var l = 0
+	var n = 0
 	var pos = start
 	var points = PoolVector2Array()
-	while l < (end - start).length():
+	while n < dist:
 		draw_polyline(PoolVector2Array([pos, pos + dash]), color, size, true)
 		pos += dash + gap
-		l += dash.length() + gap.length()
-	var a = end + dir * size/2 
+		n += dash.length() + gap.length()
+	# draw arrow end
+	var a = end + dir * size/1.5 
 	var b = end + dir.rotated(2*PI/3) * size
 	var c = end + dir.rotated(4*PI/3) * size
 	draw_polygon(PoolVector2Array([a, b, c]), PoolColorArray([color]))

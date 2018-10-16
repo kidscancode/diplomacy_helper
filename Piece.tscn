@@ -54,7 +54,7 @@ custom_solver_bias = 0.0
 a = Vector2( 17, -7 )
 b = Vector2( 17, 7 )
 
-[node name="Piece" type="Area2D" index="0"]
+[node name="Piece" type="Area2D"]
 
 position = Vector2( 23.0376, 34.168 )
 input_pickable = true
@@ -65,7 +65,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-_sections_unfolded = [ "Material", "Pickable", "Region" ]
+_sections_unfolded = [ "Material", "Pickable", "Region", "Visibility" ]
 __meta__ = {
 "_edit_group_": true
 }
