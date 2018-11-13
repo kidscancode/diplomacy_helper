@@ -1663,7 +1663,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 2 )
 custom_colors/background_color = Color( 0.378906, 0.0666046, 0.0666046, 0 )
-text = "Year: 1901 (Fall)"
+text = "Year: 1903 (Fall)"
 readonly = false
 highlight_current_line = false
 syntax_highlighting = false
@@ -1683,7 +1683,6 @@ _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="Panel" type="Panel" parent="CanvasLayer" index="4"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1698,6 +1697,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+_sections_unfolded = [ "Visibility" ]
 
 [node name="Info" type="VBoxContainer" parent="CanvasLayer/Panel" index="0"]
 

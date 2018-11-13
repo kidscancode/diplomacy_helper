@@ -55,6 +55,7 @@ func _on_Piece_input_event(viewport, event, shape_idx):
 			self.active = !self.active
 		if event.button_index == BUTTON_LEFT:
 			if event.pressed:
+				self.move = NONE
 				var mpos = get_global_mouse_position()
 				drag_position = mpos - global_position
 			else:

@@ -21,7 +21,7 @@ var SUPPLY_CENTERS = ["BER", "MUN", "KIE", "POR", "SPA", "MAR", "PAR",
 					  "BRE", "BEL", "HOL", "LON", "LVR", "EDI", "DEN",
 					  "NOR", "SWE", "TUN", "NAP", "ROM", "VEN", "TRI",
 					  "VIE", "BUD", "SER", "BUL", "RUM", "WAR", "MOS",
-					  "STP", "SEV", "CON", "SMY", "ANK"]
+					  "STP", "SEV", "CON", "SMY", "ANK", "GRE"]
 			
 enum MOVES {MOVE, HOLD, SUPPORT, CONVOY, NONE, DISBAND}
 enum UNIT_TYPES {ARMY, FLEET}

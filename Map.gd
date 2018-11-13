@@ -14,7 +14,7 @@ func _ready():
 	pass
 
 func add_unit(_position, _nation, _type):
-	for unit in CONSTANTS.STARTING_UNITS:
+	#for unit in CONSTANTS.STARTING_UNITS:
 		var p = Piece.instance()
 		p.position = _position
 		p.nation = _nation
@@ -115,17 +115,23 @@ func load_state():
 	# clear existing state
 	for unit in $Pieces.get_children():
 		unit.queue_free()
+	yield(get_tree(), "idle_frame")
+	print("empty", $Pieces.get_child_count())
 	
 	save_game.open("user://savegame.save", File.READ)
+	var count = 0
 	while not save_game.eof_reached():
 		var line = parse_json(save_game.get_line())
 		if line:
 			if line["data"] == "region":
 				get_node("Regions").get_node(line["region"]).control = int(line["owner"])
 			if line["data"] == "unit":
+				count += 1
 				var pos = Vector2(line["posx"], line["posy"])
 				add_unit(pos, int(line["nation"]), int(line["type"])) 
-				
+				printt("adding unit:", line["nation"], line["posx"], line["posy"])
+	printt(count, $Pieces.get_child_count())
+	
 func _on_ClickMenu_update_regions():
 	for region in $Regions.get_children():
 		region.update()

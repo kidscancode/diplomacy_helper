@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/map_regions/RUM.png" type="Texture" id=1]
 [ext_resource path="res://Region.gd" type="Script" id=2]
 
-[node name="Region" type="Sprite"]
+[node name="Region" type="Sprite" index="0"]
 
 modulate = Color( 1, 1, 1, 0.235294 )
 self_modulate = Color( 1, 0, 0, 1 )
