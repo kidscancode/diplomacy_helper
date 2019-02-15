@@ -5,13 +5,20 @@ enum MOVES {MOVE, HOLD, SUPPORT, CONVOY, NONE, DISBAND}
 onready var Piece = preload("res://Piece.tscn")
 onready var info_panel = $CanvasLayer/Panel/Info
 onready var select_menu = $CanvasLayer/OrderSelectMenu
+onready var year_selected = $CanvasLayer/Time/Year
+onready var season_selected = $CanvasLayer/Time/Season
 var selected = null
 var select_target = false
 var new_pos = null
-
+var score = {}
 
 func _ready():
-	pass
+	season_selected.add_item("Spring", 0)
+	season_selected.add_item("Fall", 1)
+	season_selected.select(0)
+	for i in range(1901, 1910):
+		year_selected.add_item(str(i), i)
+	year_selected.select(0)
 
 func add_unit(_position, _nation, _type):
 	#for unit in CONSTANTS.STARTING_UNITS:
@@ -84,10 +91,19 @@ func _on_AddUnitWindow_add_unit(_nation, _type):
 	$Pieces.add_child(p)
 	p.connect("clicked", self, "_on_Piece_clicked")
 
+func load_dialog():
+	$CanvasLayer/FileDialog.popup_centered()
+	
 func save_state():
 	var save_game = File.new()
+	#var fname = "user://" + $CanvasLayer/GameName.text + ".save"
+	#var fname = "user://%s_%s.save" % [$CanvasLayer/GameName.text, $CanvasLayer/TextEdit.text]
+	var fname = "res://saves/%s_%s_%s.save" % [$CanvasLayer/GameName.text,
+										year_selected.get_selected_id(),
+										season_selected.get_item_text(season_selected.get_selected_id())]
+	print(fname)
 	#if save_game.file_exists("user://savegame.save"):
-	save_game.open("user://savegame.save", File.WRITE)	
+	save_game.open(fname, File.WRITE)	
 	for unit in $Pieces.get_children():
 		var d = {}
 		d["data"] = "unit"
@@ -95,7 +111,6 @@ func save_state():
 		d["posy"] = unit.position.y
 		d["nation"] = unit.nation
 		d["type"] = unit.type
-		#printt(d)
 		save_game.store_line(to_json(d))
 	# also regions
 	for region in $Regions.get_children():
@@ -103,26 +118,43 @@ func save_state():
 		d["data"] = "region"
 		d["region"] = region.name
 		d["owner"] = region.control
-		#printt(d)
 		save_game.store_line(to_json(d))
+	# and score
+	var d = {"data": "score"}
+	d["score"] = score
+	save_game.store_line(to_json(d))
+	# and status
+	d = {}
+	d["data"] = "time"
+	d["year"] = year_selected.selected
+	d["season"] = season_selected.selected
+	save_game.store_line(to_json(d))
 	save_game.close()
 	
-func load_state():
+func load_state(fname):
 	var save_game = File.new()
-	if not save_game.file_exists("user://savegame.save"):
-		print("No save found!")
-		return
+#	if not save_game.file_exists("user://savegame.save"):
+#		print("No save found!")
+#		return
 	# clear existing state
 	for unit in $Pieces.get_children():
 		unit.queue_free()
 	yield(get_tree(), "idle_frame")
 	print("empty", $Pieces.get_child_count())
 	
-	save_game.open("user://savegame.save", File.READ)
+	save_game.open(fname, File.READ)
 	var count = 0
 	while not save_game.eof_reached():
 		var line = parse_json(save_game.get_line())
 		if line:
+			if line["data"] == "time":
+				year_selected.selected = int(line["year"])
+				season_selected.selected = int(line["season"])
+			if line["data"] == "score":
+				var s = line["score"]
+				for n in s.keys():
+					score[n] = s[n]
+					info_panel.get_node(str(n)).get_node("Num").text = str(score[n])
 			if line["data"] == "region":
 				get_node("Regions").get_node(line["region"]).control = int(line["owner"])
 			if line["data"] == "unit":
@@ -135,7 +167,7 @@ func load_state():
 func _on_ClickMenu_update_regions():
 	for region in $Regions.get_children():
 		region.update()
-	var score = {CONSTANTS.AUSTRIA: 0, CONSTANTS.ENGLAND: 0,
+	score = {CONSTANTS.AUSTRIA: 0, CONSTANTS.ENGLAND: 0,
 			 	CONSTANTS.FRANCE: 0, CONSTANTS.GERMANY: 0,
 			 	CONSTANTS.ITALY: 0, CONSTANTS.RUSSIA: 0,
 			 	CONSTANTS.TURKEY: 0}
@@ -146,3 +178,15 @@ func _on_ClickMenu_update_regions():
 			score[val] += 1
 	for n in score.keys():
 		info_panel.get_node(str(n)).get_node("Num").text = str(score[n])
+
+func _on_Year_item_selected(ID):
+	printt(ID, year_selected.selected, year_selected.get_selected_id(), year_selected.get_item_id(ID), year_selected.get_item_text(ID))
+	#print(year_selected.get_selected_id())
+
+
+func _on_Season_item_selected(ID):
+	#printt(ID, season_selected.get_selected_id(), season_selected.get_item_text(ID))
+	print(season_selected.get_item_text(season_selected.get_selected_id()))
+
+func _on_FileDialog_file_selected(path):
+	load_state(path)

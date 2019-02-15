@@ -62,8 +62,8 @@
 [ext_resource path="res://OrderSelectMenu.tscn" type="PackedScene" id=60]
 [ext_resource path="res://ClickMenu.tscn" type="PackedScene" id=61]
 [ext_resource path="res://AddUnitWindow.tscn" type="PackedScene" id=62]
-[ext_resource path="res://Roboto-Medium.ttf" type="DynamicFontData" id=63]
-[ext_resource path="res://RobotoBold48.tres" type="DynamicFont" id=64]
+[ext_resource path="res://RobotoBold48.tres" type="DynamicFont" id=63]
+[ext_resource path="res://Roboto-Medium.ttf" type="DynamicFontData" id=64]
 
 [sub_resource type="Environment" id=1]
 
@@ -146,10 +146,10 @@ _sections_unfolded = [ "Background", "Glow", "Glow/levels" ]
 
 [sub_resource type="DynamicFont" id=2]
 
-size = 64
+size = 40
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 63 )
+font_data = ExtResource( 64 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Map" type="TextureRect" index="0"]
@@ -1412,7 +1412,6 @@ polygon = PoolVector2Array( 370.42, -854.626, 373.096, -898.933, 397.299, -948.0
 
 [node name="MOS" parent="Regions" index="49" instance=ExtResource( 3 )]
 
-editor/display_folded = true
 position = Vector2( 1099.9, 464.905 )
 texture = ExtResource( 52 )
 
@@ -1437,7 +1436,6 @@ polygon = PoolVector2Array( 496.296, -661.875, 600.161, -742.765, 601.699, -838.
 
 [node name="STP" parent="Regions" index="50" instance=ExtResource( 3 )]
 
-editor/display_folded = true
 position = Vector2( 1089.17, 227.644 )
 texture = ExtResource( 53 )
 
@@ -1627,7 +1625,39 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="OrderSelectMenu" parent="CanvasLayer" index="0" instance=ExtResource( 60 )]
+[node name="FileDialog" type="FileDialog" parent="CanvasLayer" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 560.0
+margin_top = 366.0
+margin_right = 1207.0
+margin_bottom = 799.0
+rect_min_size = Vector2( 200, 70 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = true
+window_title = "Open a File"
+resizable = false
+dialog_hide_on_ok = false
+mode_overrides_title = true
+mode = 0
+access = 0
+filters = PoolStringArray(  )
+show_hidden_files = false
+current_dir = "res://saves"
+current_file = "game1_1904_Fall.save"
+current_path = "res://saves/game1_1904_Fall.save"
+_sections_unfolded = [ "Dialog" ]
+
+[node name="OrderSelectMenu" parent="CanvasLayer" index="1" instance=ExtResource( 60 )]
 
 visible = false
 margin_left = -11.0
@@ -1635,62 +1665,25 @@ margin_top = -14.0
 margin_right = 108.0
 margin_bottom = 110.0
 
-[node name="ClickMenu" parent="CanvasLayer" index="1" instance=ExtResource( 61 )]
+[node name="ClickMenu" parent="CanvasLayer" index="2" instance=ExtResource( 61 )]
 
 visible = false
 
-[node name="AddUnitWindow" parent="CanvasLayer" index="2" instance=ExtResource( 62 )]
+[node name="AddUnitWindow" parent="CanvasLayer" index="3" instance=ExtResource( 62 )]
 
 visible = false
-
-[node name="TextEdit" type="TextEdit" parent="CanvasLayer" index="3"]
-
-anchor_left = 1.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 0.0
-margin_left = -599.0
-margin_top = 2.0
-margin_right = 2.0
-margin_bottom = 102.0
-rect_min_size = Vector2( 468, 100 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 2 )
-custom_colors/background_color = Color( 0.378906, 0.0666046, 0.0666046, 0 )
-text = "Year: 1903 (Fall)"
-readonly = false
-highlight_current_line = false
-syntax_highlighting = false
-show_line_numbers = false
-highlight_all_occurrences = false
-override_selected_font_color = false
-context_menu_enabled = false
-smooth_scrolling = false
-v_scroll_speed = 80.0
-hiding_enabled = 0
-wrap_lines = false
-caret_block_mode = false
-caret_blink = false
-caret_blink_speed = 0.65
-caret_moving_by_right_click = true
-_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="Panel" type="Panel" parent="CanvasLayer" index="4"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 1574.0
-margin_top = 117.0
+margin_top = 95.0
 margin_right = 1920.0
-margin_bottom = 1076.0
+margin_bottom = 974.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -1747,7 +1740,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 64 )
+custom_fonts/font = ExtResource( 63 )
 text = "Austria"
 align = 2
 percent_visible = 1.0
@@ -1771,7 +1764,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 64 )
+custom_fonts/font = ExtResource( 63 )
 text = "3"
 align = 1
 valign = 1
@@ -1814,7 +1807,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 64 )
+custom_fonts/font = ExtResource( 63 )
 text = "England"
 align = 2
 percent_visible = 1.0
@@ -1838,7 +1831,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 64 )
+custom_fonts/font = ExtResource( 63 )
 text = "3"
 align = 1
 valign = 1
@@ -1881,7 +1874,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 64 )
+custom_fonts/font = ExtResource( 63 )
 text = "France"
 align = 2
 percent_visible = 1.0
@@ -1905,7 +1898,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 64 )
+custom_fonts/font = ExtResource( 63 )
 text = "3"
 align = 1
 valign = 1
@@ -1948,7 +1941,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 64 )
+custom_fonts/font = ExtResource( 63 )
 text = "Germany"
 align = 2
 percent_visible = 1.0
@@ -1972,7 +1965,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 64 )
+custom_fonts/font = ExtResource( 63 )
 text = "3"
 align = 1
 valign = 1
@@ -2015,7 +2008,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 64 )
+custom_fonts/font = ExtResource( 63 )
 text = "Italy"
 align = 2
 percent_visible = 1.0
@@ -2039,7 +2032,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 64 )
+custom_fonts/font = ExtResource( 63 )
 text = "3"
 align = 1
 valign = 1
@@ -2082,7 +2075,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 64 )
+custom_fonts/font = ExtResource( 63 )
 text = "Russia"
 align = 2
 percent_visible = 1.0
@@ -2106,7 +2099,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 64 )
+custom_fonts/font = ExtResource( 63 )
 text = "4"
 align = 1
 valign = 1
@@ -2149,7 +2142,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 64 )
+custom_fonts/font = ExtResource( 63 )
 text = "Turkey"
 align = 2
 percent_visible = 1.0
@@ -2173,7 +2166,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 64 )
+custom_fonts/font = ExtResource( 63 )
 text = "3"
 align = 1
 valign = 1
@@ -2182,9 +2175,118 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_constants", "custom_fonts" ]
 
+[node name="Time" type="HBoxContainer" parent="CanvasLayer" index="5"]
+
+editor/display_folded = true
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_left = -474.0
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Year" type="OptionButton" parent="CanvasLayer/Time" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 235.0
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 63 )
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+items = [  ]
+selected = -1
+_sections_unfolded = [ "Columns", "Size Flags", "custom_constants", "custom_fonts" ]
+
+[node name="Season" type="OptionButton" parent="CanvasLayer/Time" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 239.0
+margin_right = 474.0
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 63 )
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+items = [  ]
+selected = -1
+_sections_unfolded = [ "Columns", "Size Flags", "custom_fonts" ]
+
+[node name="GameName" type="TextEdit" parent="CanvasLayer" index="6"]
+
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -345.0
+margin_top = -100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+custom_colors/background_color = Color( 0.378906, 0.0666046, 0.0666046, 0 )
+text = "game1"
+readonly = false
+highlight_current_line = false
+syntax_highlighting = false
+show_line_numbers = false
+highlight_all_occurrences = false
+override_selected_font_color = false
+context_menu_enabled = false
+smooth_scrolling = false
+v_scroll_speed = 80.0
+hiding_enabled = 0
+wrap_lines = false
+caret_block_mode = false
+caret_blink = false
+caret_blink_speed = 0.65
+caret_moving_by_right_click = true
+_sections_unfolded = [ "custom_constants", "custom_fonts" ]
+
+[connection signal="file_selected" from="CanvasLayer/FileDialog" to="." method="_on_FileDialog_file_selected"]
+
 [connection signal="id_pressed" from="CanvasLayer/OrderSelectMenu" to="." method="_on_OrderSelectMenu_id_pressed"]
 
-[connection signal="load_state" from="CanvasLayer/ClickMenu" to="." method="load_state"]
+[connection signal="load_state" from="CanvasLayer/ClickMenu" to="." method="load_dialog"]
 
 [connection signal="new_unit_menu" from="CanvasLayer/ClickMenu" to="." method="_on_ClickMenu_new_unit_menu"]
 
@@ -2193,5 +2295,9 @@ _sections_unfolded = [ "Rect", "custom_constants", "custom_fonts" ]
 [connection signal="update_regions" from="CanvasLayer/ClickMenu" to="." method="_on_ClickMenu_update_regions"]
 
 [connection signal="add_unit" from="CanvasLayer/AddUnitWindow" to="." method="_on_AddUnitWindow_add_unit"]
+
+[connection signal="item_selected" from="CanvasLayer/Time/Year" to="." method="_on_Year_item_selected"]
+
+[connection signal="item_selected" from="CanvasLayer/Time/Season" to="." method="_on_Season_item_selected"]
 
 
