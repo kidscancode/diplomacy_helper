@@ -128,6 +128,7 @@ func save_state():
 	d["data"] = "time"
 	d["year"] = year_selected.selected
 	d["season"] = season_selected.selected
+	d["gamename"] = $CanvasLayer/GameName.text
 	save_game.store_line(to_json(d))
 	save_game.close()
 	
@@ -150,6 +151,7 @@ func load_state(fname):
 			if line["data"] == "time":
 				year_selected.selected = int(line["year"])
 				season_selected.selected = int(line["season"])
+				$CanvasLayer/GameName.text = line["gamename"]
 			if line["data"] == "score":
 				var s = line["score"]
 				for n in s.keys():
