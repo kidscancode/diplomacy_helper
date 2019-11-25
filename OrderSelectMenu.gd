@@ -9,11 +9,11 @@ var convoy_texture = preload("res://assets/convoy.png")
 var disband_texture = preload("res://assets/disband.png")
 
 func _ready():
-	add_icon_item(move_texture, "Move", CONSTANTS.MOVE)
-	add_icon_item(hold_texture, "Hold", CONSTANTS.HOLD)
-	add_icon_item(support_texture, "Support", CONSTANTS.SUPPORT)
-	add_icon_item(convoy_texture, "Convoy", CONSTANTS.CONVOY)
-	add_icon_item(disband_texture, "Disband", CONSTANTS.DISBAND)
-	add_item("None", CONSTANTS.NONE)
+	add_icon_item(move_texture, "Move", CONSTANTS.MOVES.MOVE)
+	add_icon_item(hold_texture, "Hold", CONSTANTS.MOVES.HOLD)
+	add_icon_item(support_texture, "Support", CONSTANTS.MOVES.SUPPORT)
+	add_icon_item(convoy_texture, "Convoy", CONSTANTS.MOVES.CONVOY)
+	add_icon_item(disband_texture, "Disband", CONSTANTS.MOVES.DISBAND)
+	add_item("None", CONSTANTS.MOVES.NONE)
 	
 

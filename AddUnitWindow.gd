@@ -5,15 +5,15 @@ signal add_unit
 onready var nations = $VBoxContainer/Nations
 onready var units = $VBoxContainer/Units
 
-var countries = {"Austria": CONSTANTS.AUSTRIA,
-				 "England": CONSTANTS.ENGLAND,
-				 "France": CONSTANTS.FRANCE,
-				 "Germany": CONSTANTS.GERMANY,
-				 "Italy": CONSTANTS.ITALY,
-				 "Russia": CONSTANTS.RUSSIA,
-				 "Turkey": CONSTANTS.TURKEY}
-var types = {"Army": CONSTANTS.ARMY,
-			 "Fleet": CONSTANTS.FLEET}
+var countries = {"Austria": CONSTANTS.NATIONS.AUSTRIA,
+				 "England": CONSTANTS.NATIONS.ENGLAND,
+				 "France": CONSTANTS.NATIONS.FRANCE,
+				 "Germany": CONSTANTS.NATIONS.GERMANY,
+				 "Italy": CONSTANTS.NATIONS.ITALY,
+				 "Russia": CONSTANTS.NATIONS.RUSSIA,
+				 "Turkey": CONSTANTS.NATIONS.TURKEY}
+var types = {"Army": CONSTANTS.UNIT_TYPES.ARMY,
+			 "Fleet": CONSTANTS.UNIT_TYPES.FLEET}
 
 var unit_choice = null
 var country_choice = null

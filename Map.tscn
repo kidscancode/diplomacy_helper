@@ -66,2238 +66,1024 @@
 [ext_resource path="res://Roboto-Medium.ttf" type="DynamicFontData" id=64]
 
 [sub_resource type="Environment" id=1]
-
 background_mode = 4
-background_sky_custom_fov = 0.0
-background_color = Color( 0, 0, 0, 1 )
-background_energy = 1.0
-background_canvas_max_layer = 0
-ambient_light_color = Color( 0, 0, 0, 1 )
-ambient_light_energy = 1.0
-ambient_light_sky_contribution = 1.0
-fog_enabled = false
-fog_color = Color( 0.5, 0.6, 0.7, 1 )
-fog_sun_color = Color( 1, 0.9, 0.7, 1 )
-fog_sun_amount = 0.0
-fog_depth_enabled = true
-fog_depth_begin = 10.0
-fog_depth_curve = 1.0
-fog_transmit_enabled = false
-fog_transmit_curve = 1.0
-fog_height_enabled = false
-fog_height_min = 0.0
-fog_height_max = 100.0
-fog_height_curve = 1.0
-tonemap_mode = 0
-tonemap_exposure = 1.0
-tonemap_white = 1.0
-auto_exposure_enabled = false
-auto_exposure_scale = 0.4
-auto_exposure_min_luma = 0.05
-auto_exposure_max_luma = 8.0
-auto_exposure_speed = 0.5
-ss_reflections_enabled = false
-ss_reflections_max_steps = 64
-ss_reflections_fade_in = 0.15
-ss_reflections_fade_out = 2.0
-ss_reflections_depth_tolerance = 0.2
-ss_reflections_roughness = true
-ssao_enabled = false
-ssao_radius = 1.0
-ssao_intensity = 1.0
-ssao_radius2 = 0.0
-ssao_intensity2 = 1.0
-ssao_bias = 0.01
-ssao_light_affect = 0.0
-ssao_color = Color( 0, 0, 0, 1 )
-ssao_quality = 0
-ssao_blur = 3
-ssao_edge_sharpness = 4.0
-dof_blur_far_enabled = false
-dof_blur_far_distance = 10.0
-dof_blur_far_transition = 5.0
-dof_blur_far_amount = 0.1
-dof_blur_far_quality = 1
-dof_blur_near_enabled = false
-dof_blur_near_distance = 2.0
-dof_blur_near_transition = 1.0
-dof_blur_near_amount = 0.1
-dof_blur_near_quality = 1
 glow_enabled = true
 glow_levels/1 = true
 glow_levels/2 = true
 glow_levels/3 = false
-glow_levels/4 = false
 glow_levels/5 = false
-glow_levels/6 = false
-glow_levels/7 = false
-glow_intensity = 0.8
-glow_strength = 1.0
-glow_bloom = 0.0
 glow_blend_mode = 1
-glow_hdr_threshold = 1.0
-glow_hdr_scale = 2.0
-glow_bicubic_upscale = false
-adjustment_enabled = false
-adjustment_brightness = 1.0
-adjustment_contrast = 1.0
-adjustment_saturation = 1.0
-_sections_unfolded = [ "Background", "Glow", "Glow/levels" ]
 
 [sub_resource type="DynamicFont" id=2]
-
 size = 40
-use_mipmaps = false
-use_filter = false
 font_data = ExtResource( 64 )
-_sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Map" type="TextureRect" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
+[node name="Map" type="TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 5
 script = ExtResource( 2 )
-_sections_unfolded = [ "Mouse", "Rect", "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Regions" type="Node" parent="." index="0"]
+[node name="Regions" type="Node" parent="."]
 
-editor/display_folded = true
+[node name="RUM" parent="Regions" instance=ExtResource( 3 )]
 
-[node name="RUM" parent="Regions" index="0" instance=ExtResource( 3 )]
-
-editor/display_folded = true
-
-[node name="Area2D" type="Area2D" parent="Regions/RUM" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/RUM"]
 position = Vector2( -434.831, 303.549 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/RUM/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/RUM/Area2D"]
 polygon = PoolVector2Array( 552.828, -182.804, 499.34, -189.421, 415.524, -169.018, 327.847, -173.981, 291.453, -194.935, 285.388, -216.44, 319.025, -242.357, 442.543, -276.545, 460.189, -304.117, 447.506, -336.651, 416.626, -361.465, 416.075, -380.764, 444.198, -414.401, 448.057, -437.561, 459.086, -435.907, 517.537, -359.81, 519.191, -327.276, 523.051, -285.92, 552.276, -267.723, 583.707, -274.891, 570.473, -243.46, 553.379, -220.852 )
 
-[node name="BUD" parent="Regions" index="1" instance=ExtResource( 3 )]
-
+[node name="BUD" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 736.731, 736.123 )
 texture = ExtResource( 4 )
 
-[node name="Area2D" type="Area2D" parent="Regions/BUD" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/BUD"]
 position = Vector2( -244.138, 353.042 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/BUD/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/BUD/Area2D"]
 polygon = PoolVector2Array( 43.865, -347.679, 79.156, -386.83, 118.858, -414.953, 147.532, -459.066, 175.104, -464.029, 176.758, -478.917, 236.311, -486.637, 305.239, -472.852, 359.279, -428.738, 401.187, -375.802, 402.29, -355.95, 443.646, -317.902, 444.198, -303.014, 433.72, -286.471, 402.841, -274.34, 320.128, -256.143, 272.705, -221.403, 217.012, -224.712, 189.992, -235.189, 174.552, -223.609, 153.598, -234.086, 143.121, -227.469, 127.681, -231.88, 99.5586, -278.2, 73.0903, -285.368, 55.9962, -304.668 )
 
-[node name="SER" parent="Regions" index="2" instance=ExtResource( 3 )]
-
+[node name="SER" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 725.057, 847.998 )
 texture = ExtResource( 5 )
 
-[node name="Area2D" type="Area2D" parent="Regions/SER" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/SER"]
 position = Vector2( -218.195, 104.431 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/SER/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/SER/Area2D"]
 polygon = PoolVector2Array( 294.706, -0.818481, 258.51, 10.1083, 215.486, 8.74243, 207.974, -17.2087, 201.828, -67.0621, 150.609, -106.672, 141.048, -126.477, 152.657, -175.647, 146.511, -209.11, 151.974, -217.988, 174.511, -209.11, 193.633, -220.72, 226.413, -210.476, 274.901, -210.476, 280.364, -184.525, 275.584, -152.428, 295.388, -119.647, 285.828, -80.7207, 297.437, -34.9647, 280.364, -24.0381 )
 
-[node name="BUL" parent="Regions" index="3" instance=ExtResource( 3 )]
-
+[node name="BUL" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 816.43, 859.08 )
 texture = ExtResource( 6 )
 
-[node name="Area2D" type="Area2D" parent="Regions/BUL" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/BUL"]
 position = Vector2( -421.246, 79.8046 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/BUL/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/BUL/Area2D"]
 polygon = PoolVector2Array( 302.218, -7.64783, 293.34, -19.2576, 307.681, -32.9161, 298.12, -77.3062, 309.73, -118.281, 287.876, -153.794, 290.608, -178.379, 333.632, -157.891, 423.778, -157.208, 507.778, -177.696, 552.168, -171.55, 548.753, -163.355, 526.217, -149.696, 521.436, -90.9646, 533.729, -70.4769, 474.315, -63.6477, 461.339, -25.4039, 457.241, 17.6204, 401.242, 17.6204, 389.632, -23.3551, 355.486, -25.4039 )
 
-[node name="ALB" parent="Regions" index="4" instance=ExtResource( 3 )]
-
+[node name="ALB" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 708.078, 898.169 )
 texture = ExtResource( 7 )
 
-[node name="Area2D" type="Area2D" parent="Regions/ALB" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/ALB"]
 position = Vector2( -180.464, -7.05994 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/ALB/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/ALB/Area2D"]
 polygon = PoolVector2Array( 135.584, -54.0868, 166.316, -78.672, 186.804, -62.2819, 201.145, 7.37646, 222.999, 22.4008, 225.047, 46.9861, 186.121, 90.0103, 154.706, 57.2299, 158.121, -25.4039 )
 
-[node name="TRI" parent="Regions" index="5" instance=ExtResource( 3 )]
-
+[node name="TRI" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 638.815, 797.704 )
 texture = ExtResource( 8 )
 
-[node name="Area2D" type="Area2D" parent="Regions/TRI" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/TRI"]
 position = Vector2( -26.5464, 216.196 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/TRI/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/TRI/Area2D"]
 polygon = PoolVector2Array( -97.9758, -283.549, -93.1954, -321.11, -102.756, -334.769, -94.5613, -347.061, -43.3419, -353.208, -32.415, -368.915, -5.78101, -333.403, 35.8773, -345.695, 47.4869, -297.891, 78.9015, -270.574, 97.3405, -265.793, 122.609, -224.818, 139.682, -220.037, 132.853, -204.33, 138.316, -174.964, 128.072, -125.794, 138.999, -100.526, 157.438, -86.1842, 128.755, -63.6477, -5.09814, -154.477, -56.3174, -209.11, -61.0979, -263.744, -74.7563, -263.744, -85.0002, -242.574, -97.9758, -241.208 )
 
-[node name="GRE" parent="Regions" index="6" instance=ExtResource( 3 )]
-
+[node name="GRE" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 757.797, 957.489 )
 texture = ExtResource( 9 )
 
-[node name="Area2D" type="Area2D" parent="Regions/GRE" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/GRE"]
 position = Vector2( -290.951, -138.882 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/GRE/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/GRE/Area2D"]
 polygon = PoolVector2Array( 190.263, 101.163, 230.264, 63.8649, 237.831, 43.324, 235.129, 23.8644, 290.265, 13.5939, 304.859, 4.40454, 359.995, -12.8931, 381.617, -11.2715, 388.645, 0.620605, 389.185, 16.2965, 356.752, 22.2426, 351.347, 34.1346, 358.914, 44.4052, 361.617, 70.3514, 332.427, 63.3243, 318.373, 37.3779, 299.995, 37.9186, 296.751, 73.5946, 331.346, 111.974, 304.319, 114.136, 302.697, 146.569, 339.995, 172.515, 330.806, 142.244, 379.996, 173.596, 369.725, 213.056, 338.373, 199.543, 333.508, 214.678, 346.482, 228.732, 337.292, 232.516, 311.346, 229.813, 326.481, 284.949, 308.103, 276.841, 297.832, 289.814, 280.535, 259.543, 269.724, 265.489, 239.453, 204.948, 262.156, 193.056, 317.292, 207.651, 329.184, 186.569, 306.481, 171.434, 229.723, 175.758, 222.696, 162.785, 241.075, 147.65, 199.993, 124.947 )
 
-[node name="CON" parent="Regions" index="7" instance=ExtResource( 3 )]
-
+[node name="CON" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 892.551, 905.713 )
 texture = ExtResource( 10 )
 
-[node name="Area2D" type="Area2D" parent="Regions/CON" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/CON"]
 position = Vector2( -590.404, -23.8245 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/CON/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/CON/Area2D"]
 polygon = PoolVector2Array( 469.232, 89.9259, 471.888, 80.1901, 510.831, 44.7865, 553.758, 46.1141, 632.531, 8.94055, 629.433, -1.23792, 605.978, -7.8761, 619.255, -14.0718, 690.061, -23.8076, 710.861, 44.7865, 702.01, 110.283, 658.641, 104.972, 636.956, 108.513, 607.749, 101.875, 586.506, 110.283, 528.976, 93.4662, 506.849, 104.087, 497.555, 80.6324 )
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Regions/CON/Area2D" index="1"]
-
-build_mode = 0
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Regions/CON/Area2D"]
 polygon = PoolVector2Array( 468.168, 18.3033, 474.315, -30.1842, 490.022, -52.7207, 539.875, -60.2329, 578.802, -13.7941, 512.558, 6.6936, 494.119, 29.9131 )
 
-[node name="SMY" parent="Regions" index="8" instance=ExtResource( 3 )]
-
+[node name="SMY" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 990.616, 952.003 )
 texture = ExtResource( 11 )
 
-[node name="Area2D" type="Area2D" parent="Regions/SMY" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/SMY"]
 position = Vector2( -808.327, -126.691 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/SMY/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/SMY/Area2D"]
 polygon = PoolVector2Array( 508.285, 112.831, 522.891, 103.094, 573.792, 117.7, 609.201, 111.061, 641.954, 119.47, 671.166, 113.274, 704.805, 119.47, 792.442, 72.5536, 888.488, 71.6683, 963.732, 5.27673, 994.272, -7.11646, 1062.88, -8.88684, 1080.14, -21.7225, 1077.48, 3.94885, 1108.02, 43.3412, 1109.79, 60.1605, 1013.3, 102.651, 973.912, 184.534, 959.306, 180.993, 943.814, 203.124, 896.012, 205.337, 860.604, 247.828, 828.736, 258.007, 729.148, 223.926, 701.264, 229.238, 691.526, 264.204, 665.855, 276.597, 622.479, 249.155, 590.168, 249.598, 588.398, 233.221, 575.443, 229.327, 547.562, 238.178, 542.695, 212.51, 532.959, 216.493, 525.435, 178.434, 507.734, 172.682, 517.912, 124.887 )
 
-[node name="ANK" parent="Regions" index="9" instance=ExtResource( 3 )]
-
+[node name="ANK" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 1027.31, 893.369 )
 texture = ExtResource( 12 )
 
-[node name="Area2D" type="Area2D" parent="Regions/ANK" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/ANK"]
 position = Vector2( -889.869, 3.60669 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/ANK/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/ANK/Area2D"]
 polygon = PoolVector2Array( 708.788, 107.52, 718.968, 63.2587, 717.198, 33.1611, 696.395, -25.7061, 716.755, -46.5088, 743.754, -73.5082, 790.228, -96.5238, 847.325, -104.933, 860.604, -112.901, 880.078, -93.8682, 897.34, -94.3108, 907.963, -102.278, 924.339, -91.2125, 969.043, -86.7864, 1080.14, -105.376, 1080.58, -35.001, 1057.57, -18.6244, 984.977, -15.9688, 948.683, 6.60437, 895.57, 56.6195, 865.915, 65.9144, 797.753, 60.1603, 761.016, 82.2909 )
 
-[node name="SYR" parent="Regions" index="10" instance=ExtResource( 3 )]
-
+[node name="SYR" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 1238.12, 963.639 )
 texture = ExtResource( 13 )
 
-[node name="Area2D" type="Area2D" parent="Regions/SYR" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/SYR"]
 position = Vector2( -1358.34, -152.549 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/SYR/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/SYR/Area2D"]
 polygon = PoolVector2Array( 994.806, 388.44, 981.75, 275.836, 970.327, 227.693, 1017.65, 112.641, 1113.12, 71.026, 1455.02, 92.2413, 1557.01, 49.8105, 1651.67, -34.2349, 1716.13, -41.5786, 1752.03, -77.4814, 1751.21, 387.624 )
 
-[node name="ARM" parent="Regions" index="11" instance=ExtResource( 3 )]
-
+[node name="ARM" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 1240.69, 880.943 )
 texture = ExtResource( 14 )
 
-[node name="Area2D" type="Area2D" parent="Regions/ARM" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/ARM"]
 position = Vector2( -1364.05, 31.2201 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/ARM/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/ARM/Area2D"]
 polygon = PoolVector2Array( 1147.39, -141.944, 1207.78, -88.9053, 1307.32, -87.2732, 1384.84, -66.8739, 1424.01, -86.4573, 1464.81, -141.128, 1477.05, -137.048, 1502.34, -83.1934, 1530.09, -86.4573, 1570.07, -50.5544, 1634.53, -35.8668, 1574.96, 20.4354, 1516.21, 62.05, 1458.28, 79.1858, 1118.83, 57.9702, 1114.75, 29.4111, 1087.83, 4.11597, 1091.09, -106.857 )
 
-[node name="SEV" parent="Regions" index="12" instance=ExtResource( 3 )]
-
+[node name="SEV" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 1093.07, 701.186 )
 texture = ExtResource( 15 )
 
-[node name="Area2D" type="Area2D" parent="Regions/SEV" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/SEV"]
 position = Vector2( -1036, 430.68 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/SEV/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/SEV/Area2D"]
 polygon = PoolVector2Array( 527.048, -368.847, 571.952, -410.979, 596.344, -450.894, 682.826, -512.429, 721.078, -592.259, 718.306, -714.221, 753.786, -725.308, 828.071, -720.319, 866.323, -774.647, 950.588, -748.592, 1006.02, -757.462, 1034.85, -739.168, 1081.42, -667.099, 1113.57, -657.675, 1140.18, -597.248, 1305.94, -496.907, 1310.37, -405.99, 1355.83, -379.935, 1430.67, -287.909, 1499.84, -235.665, 1533.65, -229.568, 1509.82, -216.819, 1520.9, -99.8644, 1472.13, -160.836, 1455.5, -153.076, 1405.61, -93.213, 1356.28, -86.5615, 1285.33, -104.853, 1222.14, -102.082, 1156.74, -152.522, 1171.15, -191.876, 1130.69, -241.208, 1075.81, -253.956, 911.189, -327.676, 928.372, -333.774, 948.326, -404.722, 924.492, -421.905, 977.703, -470.128, 959.412, -490.083, 764.857, -365.368, 824.166, -318.253, 866.292, -328.785, 872.943, -317.699, 776.497, -257.836, 758.206, -297.191, 729.937, -309.939, 759.869, -350.402, 743.24, -365.368, 708.874, -353.728, 683.931, -366.477, 706.103, -382.551, 691.137, -394.745, 621.851, -370.911, 585.268, -289.43, 549.794, -281.116, 530.948, -305.505, 535.937, -352.619 )
 
-[node name="UKR" parent="Regions" index="13" instance=ExtResource( 3 )]
-
+[node name="UKR" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 868.674, 649.208 )
 texture = ExtResource( 16 )
 
-[node name="Area2D" type="Area2D" parent="Regions/UKR" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/UKR"]
 position = Vector2( -537.344, 546.187 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/UKR/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/UKR/Area2D"]
 polygon = PoolVector2Array( 363.922, -572.224, 378.473, -635.936, 394.205, -652.848, 628.606, -713.021, 708.837, -713.415, 714.736, -659.534, 706.477, -593.461, 680.913, -529.355, 656.136, -503.398, 592.423, -462.495, 553.881, -408.221, 522.417, -378.724, 485.842, -428.672, 451.625, -449.91, 438.646, -503.398, 413.083, -543.12 )
 
-[node name="GAL" parent="Regions" index="14" instance=ExtResource( 3 )]
-
+[node name="GAL" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 749.764, 678.821 )
 texture = ExtResource( 17 )
 
-[node name="Area2D" type="Area2D" parent="Regions/GAL" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/GAL"]
 position = Vector2( -273.1, 480.38 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/GAL/Area2D" index="0"]
-
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/GAL/Area2D"]
 rotation = -0.00270608
-build_mode = 0
 polygon = PoolVector2Array( 111.421, -504.625, 106.802, -534.644, 128.739, -535.029, 155.68, -554.657, 201.864, -548.884, 252.9, -577.684, 298.465, -563.509, 340.8, -573.9, 375.823, -547.345, 409.306, -528.486, 433.168, -476.914, 437.786, -440.352, 428.55, -414.181, 405.458, -384.161, 348.113, -454.977, 299.62, -485.381, 233.038, -496.927, 171.844, -486.536, 134.512, -505.394 )
 
-[node name="VIE" parent="Regions" index="15" instance=ExtResource( 3 )]
-
+[node name="VIE" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 657.072, 704.956 )
 texture = ExtResource( 18 )
 
-[node name="Area2D" type="Area2D" parent="Regions/VIE" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/VIE"]
 position = Vector2( -67.1176, 422.302 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/VIE/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/VIE/Area2D"]
 polygon = PoolVector2Array( -3.65442, -342.981, -29.4404, -379.543, -32.9042, -420.339, -19.4338, -457.286, 6.35217, -497.312, 37.5264, -498.082, 62.9274, -500.776, 137.207, -493.464, 166.071, -479.993, 165.686, -471.526, 137.591, -464.984, 107.572, -414.951, 71.7793, -393.399, 37.5264, -354.142 )
 
-[node name="BOH" parent="Regions" index="16" instance=ExtResource( 3 )]
-
+[node name="BOH" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 622.557, 657.388 )
 texture = ExtResource( 19 )
 
-[node name="Area2D" type="Area2D" parent="Regions/BOH" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/BOH"]
 position = Vector2( 9.58252, 528.009 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/BOH/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/BOH/Area2D"]
 polygon = PoolVector2Array( -73.3152, -466.523, -72.5453, -484.612, -112.571, -527.716, -125.272, -555.812, -102.565, -576.21, -27.5161, -597.762, -0.960449, -593.529, 76.7825, -542.341, 98.335, -536.184, 102.568, -507.318, 2.50342, -507.703, -27.1312, -458.826 )
 
-[node name="TYR" parent="Regions" index="17" instance=ExtResource( 3 )]
-
+[node name="TYR" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 561.833, 726.006 )
 texture = ExtResource( 20 )
 
-[node name="Area2D" type="Area2D" parent="Regions/TYR" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/TYR"]
 position = Vector2( 144.525, 375.525 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/TYR/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/TYR/Area2D"]
 polygon = PoolVector2Array( -259.59, -414.181, -218.025, -401.481, -115.266, -402.25, -108.723, -435.734, -75.2394, -458.826, -32.9042, -449.204, -42.141, -415.336, -37.9075, -378.389, -50.6079, -359.145, -97.5615, -356.836, -109.877, -340.287, -166.068, -337.593, -193.393, -299.106, -216.485, -292.179, -229.186, -327.971, -219.179, -347.599 )
 
-[node name="MUN" parent="Regions" index="18" instance=ExtResource( 3 )]
-
+[node name="MUN" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 527.524, 659.21 )
 texture = ExtResource( 21 )
 
-[node name="Area2D" type="Area2D" parent="Regions/MUN" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/MUN"]
 position = Vector2( 220.767, 523.96 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/MUN/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/MUN/Area2D"]
 polygon = PoolVector2Array( -351.224, -495.539, -322.848, -510.266, -292.675, -550.497, -219.757, -590.727, -146.84, -632.035, -114.512, -637.423, -98.348, -592.882, -134.268, -569.894, -138.578, -543.313, -85.0575, -468.24, -119.541, -442.019, -124.569, -412.205, -213.651, -412.923, -269.327, -425.495, -282.258, -437.349, -361.641, -429.806, -343.681, -477.579 )
 
-[node name="SIL" parent="Regions" index="19" instance=ExtResource( 3 )]
-
+[node name="SIL" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 635.319, 619.682 )
 texture = ExtResource( 22 )
 
-[node name="Area2D" type="Area2D" parent="Regions/SIL" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/SIL"]
 position = Vector2( -18.7773, 611.8 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/SIL/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/SIL/Area2D"]
 polygon = PoolVector2Array( -105.938, -639.164, -5.4082, -678.68, 19.25, -668.564, 92.9089, -668.248, 95.1218, -638.215, 113.774, -599.015, 146.651, -561.079, 125.471, -546.221, 94.4896, -547.802, -3.82764, -608.183, -34.8086, -609.131, -89.1835, -594.589 )
 
-[node name="PRU" parent="Regions" index="20" instance=ExtResource( 3 )]
-
+[node name="PRU" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 686.817, 540.094 )
 texture = ExtResource( 23 )
 
-[node name="Area2D" type="Area2D" parent="Regions/PRU" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/PRU"]
 position = Vector2( -133.218, 788.662 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/PRU/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/PRU/Area2D"]
 polygon = PoolVector2Array( -19.6982, -785.639, 25.2938, -794.49, 90.5692, -823.993, 118.597, -823.624, 132.242, -800.022, 160.27, -805.185, 194.567, -844.645, 218.17, -845.752, 222.595, -901.438, 241.403, -870.829, 274.963, -854.603, 286.764, -828.05, 284.182, -803.71, 256.155, -772.732, 215.219, -755.03, 125.973, -727.371, 94.257, -676.478, 27.5065, -676.109, -1.25879, -687.173, -2.36523, -713.726 )
 
-[node name="BER" parent="Regions" index="21" instance=ExtResource( 3 )]
-
+[node name="BER" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 590.508, 566.512 )
 texture = ExtResource( 24 )
 
-[node name="Area2D" type="Area2D" parent="Regions/BER" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/BER"]
 position = Vector2( 80.8025, 729.956 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/BER/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/BER/Area2D"]
 polygon = PoolVector2Array( -131.81, -797.072, -65.0591, -821.043, -65.428, -800.022, -28.1804, -786.377, -9.74109, -687.173, -142.873, -638.124, -153.937, -660.989 )
 
-[node name="DEN" parent="Regions" index="22" instance=ExtResource( 3 )]
-
+[node name="DEN" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 557.094, 476.147 )
 texture = ExtResource( 25 )
 
-[node name="Area2D" type="Area2D" parent="Regions/DEN" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/DEN"]
 position = Vector2( 155.056, 930.767 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/DEN/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/DEN/Area2D"]
 polygon = PoolVector2Array( -218.817, -836.544, -225.119, -902.363, -216.717, -987.788, -198.511, -1002.84, -144.596, -1022.8, -156.849, -981.486, -144.245, -946.476, -182.757, -912.866, -185.557, -844.946 )
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Regions/DEN/Area2D" index="1"]
-
-build_mode = 0
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Regions/DEN/Area2D"]
 polygon = PoolVector2Array( -117.288, -924.77, -133.392, -899.562, -130.592, -881.007, -103.284, -862.451, -89.2795, -868.753, -87.8792, -892.91, -100.833, -921.969 )
 
-[node name="HOL" parent="Regions" index="23" instance=ExtResource( 3 )]
-
+[node name="HOL" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 459.087, 576.209 )
 texture = ExtResource( 26 )
 
-[node name="Area2D" type="Area2D" parent="Regions/HOL" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/HOL"]
 position = Vector2( 372.849, 708.407 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/HOL/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/HOL/Area2D"]
 polygon = PoolVector2Array( -444.897, -692.387, -416.801, -710.65, -396.431, -754.902, -380.626, -774.921, -351.476, -787.213, -302.307, -790.725, -305.468, -759.819, -317.409, -729.264, -351.125, -696.601, -379.221, -629.169, -386.948, -648.135, -389.055, -668.153 )
 
-[node name="KIE" parent="Regions" index="24" instance=ExtResource( 3 )]
-
+[node name="KIE" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 516.605, 573.534 )
 texture = ExtResource( 27 )
 
-[node name="Area2D" type="Area2D" parent="Regions/KIE" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/KIE"]
 position = Vector2( 245.031, 714.351 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/KIE/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/KIE/Area2D"]
 polygon = PoolVector2Array( -348.779, -679.505, -331.358, -700.152, -304.904, -724.994, -291.676, -794.033, -271.352, -803.389, -254.253, -787.904, -233.283, -789.194, -227.476, -809.196, -165.534, -824.036, -160.05, -814.035, -176.181, -794.033, -140.693, -795.646, -161.34, -689.829, -160.372, -655.309, -153.598, -638.533, -222.314, -602.078, -264.577, -641.437 )
 
-[node name="RUH" parent="Regions" index="25" instance=ExtResource( 3 )]
-
+[node name="RUH" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 491.524, 630.717 )
 texture = ExtResource( 28 )
 
-[node name="Area2D" type="Area2D" parent="Regions/RUH" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/RUH"]
 position = Vector2( 300.767, 587.278 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/RUH/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/RUH/Area2D"]
 polygon = PoolVector2Array( -351.683, -671.117, -277.481, -639.501, -228.444, -597.561, -281.998, -569.171, -310.711, -539.168, -329.1, -515.94, -352.651, -502.713, -377.169, -554.008, -361.684, -566.59, -375.234, -615.305 )
 
-[node name="BUR" parent="Regions" index="26" instance=ExtResource( 3 )]
-
+[node name="BUR" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 412.27, 702.28 )
 texture = ExtResource( 29 )
 
-[node name="Area2D" type="Area2D" parent="Regions/BUR" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/BUR"]
 position = Vector2( 476.887, 428.249 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/BUR/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/BUR/Area2D"]
 polygon = PoolVector2Array( -437.498, -570.462, -386.202, -554.008, -380.073, -532.07, -359.103, -488.195, -358.135, -472.387, -379.105, -418.51, -436.853, -355.278, -495.569, -362.053, -505.57, -347.858, -514.603, -296.562, -534.928, -283.012, -551.058, -293.658, -560.737, -326.242, -557.833, -350.761, -587.836, -367.537, -595.902, -377.216, -566.866, -396.25, -557.188, -443.029, -488.794, -495.938, -468.146, -501.745 )
 
-[node name="BEL" parent="Regions" index="27" instance=ExtResource( 3 )]
-
+[node name="BEL" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 421.634, 612.325 )
 texture = ExtResource( 30 )
 
-[node name="Area2D" type="Area2D" parent="Regions/BEL" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/BEL"]
 position = Vector2( 456.078, 628.149 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/BEL/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/BEL/Area2D"]
 polygon = PoolVector2Array( -538.388, -650.222, -521.495, -675.248, -456.427, -688.387, -398.867, -660.858, -396.364, -642.088, -375.717, -586.405, -377.281, -564.82, -412.318, -570.764 )
 
-[node name="LON" parent="Regions" index="28" instance=ExtResource( 3 )]
-
+[node name="LON" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 368.297, 556.322 )
 texture = ExtResource( 31 )
 
-[node name="Area2D" type="Area2D" parent="Regions/LON" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/LON"]
 position = Vector2( 574.605, 752.6 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/LON/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/LON/Area2D"]
 polygon = PoolVector2Array( -556.134, -810.861, -506.578, -795.314, -504.31, -778.471, -517.266, -761.305, -552.571, -737.984, -542.53, -702.355, -562.936, -694.581, -601.804, -695.877, -626.744, -707.214, -642.291, -739.603, -637.433, -765.839, -617.027, -782.682 )
 
-[node name="WAL" parent="Regions" index="29" instance=ExtResource( 3 )]
-
+[node name="WAL" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 305.627, 537.321 )
 texture = ExtResource( 32 )
 
-[node name="Area2D" type="Area2D" parent="Regions/WAL" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/WAL"]
 position = Vector2( 713.871, 794.825 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/WAL/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/WAL/Area2D"]
 polygon = PoolVector2Array( -689.257, -770.698, -755.98, -809.242, -702.86, -831.267, -700.917, -861.066, -712.901, -866.572, -689.581, -881.795, -673.386, -876.289, -660.43, -843.899, -614.76, -824.789, -613.464, -795.638, -647.15, -765.515, -651.36, -736.041, -635.813, -709.157, -714.845, -722.113, -744.967, -708.185, -778.005, -719.522, -801.65, -709.805, -812.662, -713.368, -763.106, -737.336, -758.571, -751.264, -689.257, -750.292, -676.301, -767.459 )
 
-[node name="YOR" parent="Regions" index="30" instance=ExtResource( 3 )]
-
+[node name="YOR" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 367.297, 497.319 )
 texture = ExtResource( 33 )
 
-[node name="Area2D" type="Area2D" parent="Regions/YOR" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/YOR"]
 position = Vector2( 576.827, 883.718 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/YOR/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/YOR/Area2D"]
 polygon = PoolVector2Array( -599.86, -969.572, -576.54, -966.333, -577.835, -945.603, -551.276, -903.496, -549.008, -881.471, -564.555, -869.163, -542.53, -838.717, -560.021, -825.437, -560.345, -816.044, -605.043, -798.553, -610.225, -874.345, -599.213, -936.858 )
 
-[node name="LVR" parent="Regions" index="31" instance=ExtResource( 3 )]
-
+[node name="LVR" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 330.295, 466.317 )
 texture = ExtResource( 34 )
 
-[node name="Area2D" type="Area2D" parent="Regions/LVR" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/LVR"]
 position = Vector2( 659.054, 952.611 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/LVR/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/LVR/Area2D"]
 polygon = PoolVector2Array( -694.439, -1073.54, -640.672, -1061.56, -635.165, -1017.83, -608.606, -972.163, -605.691, -945.279, -613.464, -899.933, -615.084, -832.886, -645.53, -843.899, -665.288, -874.022, -646.178, -874.669, -651.037, -955.968, -640.348, -970.543, -691.848, -986.091, -680.511, -1006.17, -661.401, -1056.7, -674.681, -1062.21, -697.678, -1034.68, -698.65, -1052.81, -708.043, -1057.02 )
 
-[node name="EDI" parent="Regions" index="32" instance=ExtResource( 3 )]
-
+[node name="EDI" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 362.63, 406.98 )
 texture = ExtResource( 35 )
 
-[node name="Area2D" type="Area2D" parent="Regions/EDI" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/EDI"]
 position = Vector2( 587.198, 1084.47 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/EDI/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/EDI/Area2D"]
 polygon = PoolVector2Array( -604.395, -978.317, -629.011, -1020.75, -630.955, -1086.5, -613.788, -1165.85, -583.989, -1194.68, -561.316, -1187.23, -565.203, -1179.78, -608.282, -1158.4, -611.197, -1141.24, -548.037, -1129.58, -543.502, -1119.54, -591.763, -1060.26, -593.059, -1034.68, -574.92, -996.455, -574.596, -974.43 )
 
-[node name="CLY" parent="Regions" index="33" instance=ExtResource( 3 )]
-
+[node name="CLY" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 338.296, 384.979 )
 texture = ExtResource( 36 )
 
-[node name="Area2D" type="Area2D" parent="Regions/CLY" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/CLY"]
 position = Vector2( 641.274, 1133.36 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/CLY/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/CLY/Area2D"]
 polygon = PoolVector2Array( -684.091, -1078.93, -674.726, -1093.14, -691.842, -1094.1, -673.435, -1127.04, -684.091, -1154.82, -678.924, -1167.09, -666.976, -1159.34, -612.724, -1199.7, -593.348, -1195.18, -618.214, -1174.51, -630.808, -1138.99, -638.881, -1069.89 )
 
-[node name="PIC" parent="Regions" index="34" instance=ExtResource( 3 )]
-
+[node name="PIC" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 385.518, 627.373 )
 texture = ExtResource( 37 )
 
-[node name="Area2D" type="Area2D" parent="Regions/PIC" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/PIC"]
 position = Vector2( 536.336, 594.709 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/PIC/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/PIC/Area2D"]
 polygon = PoolVector2Array( -626.206, -597.491, -599.318, -597.491, -599.642, -614.66, -560.444, -620.491, -541.655, -639.928, -444.47, -575.138, -453.217, -549.87, -515.739, -577.73, -544.894, -579.026, -571.458, -567.688, -631.713, -567.364 )
 
-[node name="PAR" parent="Regions" index="35" instance=ExtResource( 3 )]
-
+[node name="PAR" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 379.164, 679.206 )
 texture = ExtResource( 38 )
 
-[node name="Area2D" type="Area2D" parent="Regions/PAR" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/PAR"]
 position = Vector2( 550.456, 479.525 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/PAR/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/PAR/Area2D"]
 polygon = PoolVector2Array( -632.361, -559.589, -571.134, -560.561, -541.007, -572.223, -507.64, -567.688, -455.808, -543.391, -480.105, -505.813, -496.95, -502.574, -564.007, -448.474, -577.289, -400.53, -594.458, -386.6, -615.515, -388.22, -645.319, -417.375 )
 
-[node name="BRE" parent="Regions" index="36" instance=ExtResource( 3 )]
-
+[node name="BRE" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 301.248, 656.801 )
 texture = ExtResource( 39 )
 
-[node name="Area2D" type="Area2D" parent="Regions/BRE" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/BRE"]
 position = Vector2( 723.602, 529.313 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/BRE/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/BRE/Area2D"]
 polygon = PoolVector2Array( -651.15, -420.291, -717.883, -435.516, -736.996, -469.207, -741.855, -516.828, -820.251, -578.054, -809.561, -603.97, -760.32, -604.294, -681.925, -568.659, -677.065, -576.11, -680.305, -636.365, -673.178, -634.421, -659.572, -611.421, -633.656, -600.73 )
 
-[node name="GAS" parent="Regions" index="37" instance=ExtResource( 3 )]
-
+[node name="GAS" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 325.325, 754.113 )
 texture = ExtResource( 40 )
 
-[node name="Area2D" type="Area2D" parent="Regions/GAS" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/GAS"]
 position = Vector2( 670.098, 313.065 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/GAS/Area2D" index="0"]
-
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/GAS/Area2D"]
 rotation = -0.00306103
-build_mode = 0
 polygon = PoolVector2Array( -780.077, -265.62, -742.539, -308.402, -731.724, -349.316, -712.967, -380.871, -717.191, -427.342, -652.877, -415.694, -632.049, -387.046, -606.519, -378.83, -594.865, -364.17, -566.404, -347.074, -567.379, -319.126, -557.63, -290.854, -609.79, -265.749, -656.138, -199.921, -678.861, -208.115, -715.892, -207.986 )
 
-[node name="MAR" parent="Regions" index="38" instance=ExtResource( 3 )]
-
+[node name="MAR" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 395.237, 779.355 )
 texture = ExtResource( 41 )
 
-[node name="Area2D" type="Area2D" parent="Regions/MAR" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/MAR"]
 position = Vector2( 514.738, 256.971 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/MAR/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/MAR/Area2D"]
 polygon = PoolVector2Array( -592.402, -158.59, -649.272, -193.362, -603.451, -259.006, -552.43, -282.079, -529.682, -273.305, -505.959, -293.453, -493.935, -351.624, -436.74, -345.774, -388.319, -340.575, -398.718, -323.351, -387.669, -296.378, -398.068, -285.004, -381.17, -195.312, -421.466, -174.513, -438.69, -166.714, -467.938, -181.338, -479.312, -197.587, -548.531, -216.11, -581.353, -200.511 )
 
-[node name="PIE" parent="Regions" index="39" instance=ExtResource( 3 )]
-
+[node name="PIE" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 486.529, 776.133 )
 texture = ExtResource( 42 )
 
-[node name="Area2D" type="Area2D" parent="Regions/PIE" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/PIE"]
 position = Vector2( 311.867, 264.131 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/PIE/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/PIE/Area2D"]
 polygon = PoolVector2Array( -369.796, -198.237, -387.019, -277.53, -376.62, -297.353, -387.019, -315.227, -386.044, -324.326, -363.621, -324.651, -339.898, -329.851, -307.076, -310.027, -293.955, -303.612, -274.254, -326.926, -239.157, -322.051, -236.882, -301.253, -262.23, -273.955, -269.704, -245.358, -258.655, -221.635, -267.104, -207.661, -297.652, -228.459, -320.4, -227.809 )
 
-[node name="TUS" parent="Regions" index="40" instance=ExtResource( 3 )]
-
+[node name="TUS" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 532.712, 827.328 )
 texture = ExtResource( 43 )
 
-[node name="Area2D" type="Area2D" parent="Regions/TUS" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/TUS"]
 position = Vector2( 209.238, 150.365 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/TUS/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/TUS/Area2D"]
 polygon = PoolVector2Array( -253.161, -216.194, -189.471, -172.016, -158.178, -128.942, -192.048, -107.22, -215.61, -82.5542, -249.848, -145.14, -252.793, -186.373, -261.997, -201.468 )
 
-[node name="VEN" parent="Regions" index="41" instance=ExtResource( 3 )]
-
+[node name="VEN" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 547.39, 808.353 )
 texture = ExtResource( 44 )
 
-[node name="Area2D" type="Area2D" parent="Regions/VEN" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/VEN"]
 position = Vector2( 176.62, 192.531 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/VEN/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/VEN/Area2D"]
 polygon = PoolVector2Array( -232.545, -294.242, -220.764, -282.461, -202.356, -283.198, -186.526, -292.033, -176.954, -307.496, -165.909, -325.536, -122.467, -332.162, -106.636, -325.167, -103.323, -303.078, -107.373, -286.511, -143.084, -275.098, -162.596, -258.9, -157.073, -241.964, -165.909, -226.502, -165.909, -204.781, -138.666, -170.543, -112.527, -135.568, -91.5422, -84.3948, -109.214, -52.3656, -133.88, -76.2955, -156.337, -135.568, -174.377, -166.125, -211.928, -195.577, -249.112, -220.612, -262.734, -240.124, -258.316, -266.999 )
 
-[node name="APU" parent="Regions" index="42" instance=ExtResource( 3 )]
-
+[node name="APU" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 626.869, 894.992 )
 texture = ExtResource( 45 )
 
-[node name="Area2D" type="Area2D" parent="Regions/APU" index="0"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
+[node name="Area2D" type="Area2D" parent="Regions/APU"]
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/APU/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/APU/Area2D"]
 polygon = PoolVector2Array( -89.5505, -78.2543, -102.612, -56.9823, -93.6556, -30.4857, -66.4126, -9.96008, -38.7965, 13.9241, -20.1368, 52.3629, 13.0771, 75.1276, 35.0955, 46.3917, 95.5525, 79.6058, 100.404, 69.9027, -9.6875, -19.6632, -10.434, -35.7104, -58.9489, -52.504 )
 
-[node name="ROM" parent="Regions" index="43" instance=ExtResource( 3 )]
-
+[node name="ROM" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 560.279, 867.067 )
 texture = ExtResource( 46 )
 
-[node name="Area2D" type="Area2D" parent="Regions/ROM" index="0"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
+[node name="Area2D" type="Area2D" parent="Regions/ROM"]
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/ROM/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/ROM/Area2D"]
 polygon = PoolVector2Array( -7.25476, -61.7316, 10.4165, -12.7672, 37.6599, 14.8444, 60.4855, 46.8737, 39.5007, 57.55, 21.4612, 47.61, -4.67773, 45.7692, -63.2141, -16.0806 )
 
-[node name="NAP" parent="Regions" index="44" instance=ExtResource( 3 )]
-
+[node name="NAP" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 610.758, 939.027 )
 texture = ExtResource( 47 )
 
-[node name="Area2D" type="Area2D" parent="Regions/NAP" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/NAP"]
 position = Vector2( -112.176, -159.911 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/NAP/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/NAP/Area2D"]
 polygon = PoolVector2Array( 45.0377, 66.2239, 65.6479, 53.8577, 88.0903, 60.7278, 111.906, 85.9181, 125.189, 118.894, 158.165, 141.337, 155.875, 159.657, 162.745, 170.191, 176.485, 186.679, 178.317, 205.916, 162.287, 205.457, 130.685, 264.082, 117.403, 256.296, 143.509, 198.588, 131.143, 166.069, 77.098, 100.116 )
 
-[node name="SPA" parent="Regions" index="45" instance=ExtResource( 3 )]
-
+[node name="SPA" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 236.074, 837.935 )
 texture = ExtResource( 48 )
 
-[node name="Area2D" type="Area2D" parent="Regions/SPA" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/SPA"]
 position = Vector2( 720.455, 64.7377 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/SPA/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/SPA/Area2D"]
 polygon = PoolVector2Array( -960.875, -228.875, -951.357, -296.767, -884.099, -294.864, -647.428, -199.688, -599.205, -150.196, -447.558, -86.7455, -458.345, -65.1722, -551.617, -35.3503, -590.322, -13.7771, -643.621, 57.2876, -632.834, 91.551, -658.849, 99.1652, -694.381, 144.849, -733.086, 150.56, -772.426, 179.748, -863.795, 154.367, -927.246, 159.443, -944.377, 168.961, -964.682, 112.49, -993.869, 79.4955, -955.798, 25.5624, -934.86, -71.5173, -856.181, -167.328, -867.602, -199.688 )
 
-[node name="POR" parent="Regions" index="46" instance=ExtResource( 3 )]
-
+[node name="POR" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 125.941, 836.523 )
 texture = ExtResource( 49 )
 
-[node name="Area2D" type="Area2D" parent="Regions/POR" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/POR"]
 position = Vector2( 965.195, 67.8755 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/POR/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/POR/Area2D"]
 polygon = PoolVector2Array( -960.798, -214.284, -873.809, -183.994, -955.361, -63.6072, -1005.07, 74.6432, -1036.91, 76.9734, -1067.2, 59.8862, -1036.91, -22.4426, -1060.99, -37.9764 )
 
-[node name="WAR" parent="Regions" index="47" instance=ExtResource( 3 )]
-
+[node name="WAR" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 733.644, 593.868 )
 texture = ExtResource( 50 )
 
-[node name="Area2D" type="Area2D" parent="Regions/WAR" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/WAR"]
 position = Vector2( -385.256, 607.109 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/WAR/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/WAR/Area2D"]
 polygon = PoolVector2Array( 426.362, -717.456, 488.49, -663.235, 517.295, -574.561, 505.999, -514.691, 486.795, -524.858, 438.222, -516.386, 401.51, -529.376, 342.206, -498.312, 296.457, -510.738, 256.92, -570.042, 268.217, -645.161, 319.049, -671.142, 397.557, -694.864 )
 
-[node name="LVN" parent="Regions" index="48" instance=ExtResource( 3 )]
-
+[node name="LVN" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 778.43, 480.662 )
 texture = ExtResource( 51 )
 
-[node name="Area2D" type="Area2D" parent="Regions/LVN" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/LVN"]
 position = Vector2( -484.78, 858.678 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/LVN/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/LVN/Area2D"]
 polygon = PoolVector2Array( 370.42, -854.626, 373.096, -898.933, 397.299, -948.073, 446.439, -908.467, 472.842, -912.135, 477.243, -992.078, 446.439, -1012.61, 444.238, -1047.82, 476.509, -1028.75, 537.384, -1025.08, 600.458, -940.738, 585.057, -818.256, 587.99, -749.314, 492.645, -670.104, 434.103, -720.892, 449.114, -756.828, 436.904, -795.52, 400.966, -814.589 )
 
-[node name="MOS" parent="Regions" index="49" instance=ExtResource( 3 )]
-
+[node name="MOS" parent="Regions" instance=ExtResource( 3 )]
 position = Vector2( 1099.9, 464.905 )
 texture = ExtResource( 52 )
 
-[node name="Area2D" type="Area2D" parent="Regions/MOS" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/MOS"]
 position = Vector2( -1199.16, 893.693 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/MOS/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/MOS/Area2D"]
 polygon = PoolVector2Array( 496.296, -661.875, 600.161, -742.765, 601.699, -838.758, 608.968, -925.181, 671.968, -924.373, 706.294, -949.411, 753.14, -1013.62, 815.123, -997.346, 851.678, -1102.47, 961.523, -1129.12, 1344.86, -1263.95, 1873.87, -1515.22, 1897.67, -279.995, 1615.98, -623.849, 1453.31, -454.567, 1313.12, -578.884, 1159.71, -707.167, 1011.59, -723.038, 966.891, -677.253, 858.831, -665.097, 767.655, -661.044, 522.26, -596.076 )
 
-[node name="STP" parent="Regions" index="50" instance=ExtResource( 3 )]
-
+[node name="STP" parent="Regions" instance=ExtResource( 3 )]
 position = Vector2( 1089.17, 227.644 )
 texture = ExtResource( 53 )
 
-[node name="Area2D" type="Area2D" parent="Regions/STP" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/STP"]
 position = Vector2( -1175.31, 1420.94 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/STP/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/STP/Area2D"]
 polygon = PoolVector2Array( 456.959, -1048.75, 490.359, -1066.56, 565.645, -1066.13, 586.605, -1093.94, 642.642, -1107.2, 590.883, -1148.26, 620.398, -1214.14, 622.965, -1262.48, 638.888, -1304.01, 557.518, -1516.14, 551.957, -1573.46, 526.882, -1634.31, 551.957, -1669.7, 563.078, -1704.35, 586.605, -1714.62, 581.472, -1695.37, 600.721, -1682.54, 658.041, -1687.24, 803.051, -1632.06, 818.879, -1607.68, 812.89, -1570.46, 795.78, -1549.07, 770.969, -1538.81, 716.644, -1537.95, 667.88, -1550.36, 639.22, -1550.79, 608.849, -1563.62, 603.716, -1551.21, 679.857, -1493.47, 709.8, -1419.46, 785.085, -1383.53, 809.896, -1395.94, 807.329, -1419.46, 758.137, -1442.99, 757.709, -1458.82, 901.436, -1445.56, 901.436, -1464.81, 862.082, -1469.51, 823.156, -1503.73, 859.516, -1567.04, 905.286, -1573.46, 902.249, -1632.68, 856.342, -1718.06, 946.318, -1639.11, 1039.05, -1807.12, 1063.84, -1683.18, 1135.45, -1857.62, 1757.94, -1866.8, 1894.74, -1673.08, 1573.4, -1401.31, 1308.06, -1262.68, 1058.33, -1191.06, 957.336, -1135.97, 855.424, -1122.2, 815.027, -1058.85, 805.393, -1008.19, 748.004, -1025.8, 677.991, -938.271, 613.958, -931.234, 594.772, -975.162, 564.38, -1014.78, 538.672, -1032.23 )
 
-[node name="FIN" parent="Regions" index="51" instance=ExtResource( 3 )]
-
+[node name="FIN" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 777.209, 234.774 )
 texture = ExtResource( 54 )
 
-[node name="Area2D" type="Area2D" parent="Regions/FIN" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/FIN"]
 position = Vector2( -482.067, 1405.1 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/FIN/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/FIN/Area2D"]
 polygon = PoolVector2Array( 336.436, -1644.25, 346.774, -1659.76, 411.02, -1639.82, 444.25, -1653.11, 461.973, -1703.33, 506.28, -1687.08, 503.326, -1644.99, 515.142, -1636.13, 524.003, -1600.68, 545.418, -1570.41, 552.803, -1498.78, 577.911, -1416.81, 625.172, -1311.21, 616.31, -1275.03, 614.095, -1217.43, 582.341, -1155.4, 431.696, -1104.44, 413.973, -1121.43, 399.204, -1120.69, 366.712, -1141.37, 373.359, -1190.84, 363.759, -1264.69, 468.619, -1410.16, 459.019, -1445.61, 428.004, -1458.9, 408.066, -1571.15, 377.051, -1612.5 )
 
-[node name="SWE" parent="Regions" index="52" instance=ExtResource( 3 )]
-
+[node name="SWE" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 664.523, 315.661 )
 texture = ExtResource( 55 )
 
-[node name="Area2D" type="Area2D" parent="Regions/SWE" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/SWE"]
 position = Vector2( -231.654, 1225.35 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/SWE/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/SWE/Area2D"]
 polygon = PoolVector2Array( 334.67, -1632.54, 372.524, -1597.05, 400.915, -1542.64, 414.322, -1462.99, 376.468, -1451.94, 352.02, -1405.42, 352.808, -1364.41, 261.326, -1261.88, 236.878, -1209.04, 230.569, -1150.68, 250.285, -1121.5, 270.79, -1104.94, 276.31, -1079.71, 270.79, -1053.68, 247.131, -1028.45, 205.333, -1018.19, 206.121, -979.549, 187.983, -873.083, 135.932, -859.676, 108.33, -818.667, 90.1914, -827.342, 72.8413, -866.774, 88.6141, -893.588, 48.3934, -1029.23, 79.939, -1055.26, 115.428, -1217.72, 109.119, -1268.98, 124.103, -1334.44, 162.746, -1358.89, 261.326, -1574.18, 289.717, -1588.38, 286.562, -1603.36, 334.67, -1611.25 )
 
-[node name="NOR" parent="Regions" index="53" instance=ExtResource( 3 )]
-
+[node name="NOR" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 654.643, 240.022 )
 texture = ExtResource( 56 )
 
-[node name="Area2D" type="Area2D" parent="Regions/NOR" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/NOR"]
 position = Vector2( -209.698, 1393.43 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/NOR/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/NOR/Area2D"]
 polygon = PoolVector2Array( 99.2274, -1379.99, 104.73, -1399.65, 254.1, -1619.77, 273.754, -1632.35, 269.823, -1663.79, 294.194, -1666.94, 305.2, -1682.66, 355.514, -1703.89, 420.765, -1755.77, 423.91, -1708.61, 521.393, -1748.7, 551.267, -1707.82, 522.965, -1654.36, 517.462, -1706.25, 473.437, -1719.61, 441.991, -1706.25, 435.702, -1663.01, 412.903, -1655.15, 340.577, -1674.01, 320.137, -1626.85, 276.898, -1618.2, 267.465, -1598.54, 247.025, -1580.46, 142.466, -1364.27, 107.089, -1341.47, 96.869, -1277.79, 96.869, -1211.76, 70.1398, -1082.04, 48.9136, -1045.88, 30.832, -1078.9, -80.8021, -1020.72, -114.607, -1031.73, -125.613, -1053.74, -90.236, -1088.33, -112.248, -1107.2, -99.6698, -1147.29, -120.11, -1166.94, -112.248, -1220.4, -83.1605, -1264.43, -37.5635, -1266.79, -45.425, -1281.72, 34.7627, -1322.6, 70.1398, -1360.34 )
 
-[node name="TUN" parent="Regions" index="54" instance=ExtResource( 3 )]
-
+[node name="TUN" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 473.996, 1033.27 )
 texture = ExtResource( 57 )
 
-[node name="Area2D" type="Area2D" parent="Regions/TUN" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/TUN"]
 position = Vector2( 191.74, -369.34 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/TUN/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/TUN/Area2D"]
 polygon = PoolVector2Array( -265.957, 451.341, -264.14, 354.586, -241.427, 295.534, -191.914, 287.357, -165.114, 295.534, -160.117, 316.429, -145.581, 319.609, -117.417, 304.165, -150.123, 345.501, -147.398, 378.661, -123.323, 409.096, -129.228, 450.432 )
 
-[node name="NAF" parent="Regions" index="55" instance=ExtResource( 3 )]
-
+[node name="NAF" parent="Regions" instance=ExtResource( 3 )]
 editor/display_folded = true
 position = Vector2( 231.474, 1014.36 )
 texture = ExtResource( 58 )
 
-[node name="Area2D" type="Area2D" parent="Regions/NAF" index="0"]
-
+[node name="Area2D" type="Area2D" parent="Regions/NAF"]
 position = Vector2( 730.678, -327.318 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
 collision_layer = 2
 collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/NAF/Area2D" index="0"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Regions/NAF/Area2D"]
 polygon = PoolVector2Array( -1203.94, 449.627, -1196.13, 361.729, -1143.39, 311.921, -1038.89, 294.341, -949.039, 203.514, -912.903, 255.276, -874.814, 273.832, -839.655, 266.996, -815.239, 287.505, -755.665, 295.318, -716.599, 274.809, -663.861, 280.669, -598.426, 258.206, -447.048, 266.019, -404.076, 294.341, -364.033, 283.599, -255.627, 294.341, -281.996, 353.916, -281.019, 444.744 )
 
-[node name="Pieces" type="Node" parent="." index="1"]
+[node name="Pieces" type="Node" parent="."]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2"]
-
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
 
-[node name="Camera2D" type="Camera2D" parent="." index="3"]
-
+[node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 960, 540 )
-anchor_mode = 1
-rotating = false
 current = true
-zoom = Vector2( 1, 1 )
 limit_left = 0
 limit_top = 0
 limit_right = 1920
 limit_bottom = 1080
-limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = false
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
-editor_draw_screen = true
-editor_draw_limits = false
-editor_draw_drag_margin = false
 script = ExtResource( 59 )
-_sections_unfolded = [ "Limit", "Transform" ]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="4"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-
-[node name="FileDialog" type="FileDialog" parent="CanvasLayer" index="0"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="FileDialog" type="FileDialog" parent="CanvasLayer"]
 margin_left = 560.0
 margin_top = 366.0
 margin_right = 1207.0
 margin_bottom = 799.0
-rect_min_size = Vector2( 200, 70 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 popup_exclusive = true
 window_title = "Open a File"
-resizable = false
-dialog_hide_on_ok = false
-mode_overrides_title = true
 mode = 0
-access = 0
-filters = PoolStringArray(  )
-show_hidden_files = false
 current_dir = "res://saves"
 current_file = "game1_1904_Fall.save"
 current_path = "res://saves/game1_1904_Fall.save"
-_sections_unfolded = [ "Dialog" ]
 
-[node name="OrderSelectMenu" parent="CanvasLayer" index="1" instance=ExtResource( 60 )]
-
-visible = false
+[node name="OrderSelectMenu" parent="CanvasLayer" instance=ExtResource( 60 )]
 margin_left = -11.0
 margin_top = -14.0
 margin_right = 108.0
 margin_bottom = 110.0
 
-[node name="ClickMenu" parent="CanvasLayer" index="2" instance=ExtResource( 61 )]
+[node name="ClickMenu" parent="CanvasLayer" instance=ExtResource( 61 )]
 
-visible = false
+[node name="AddUnitWindow" parent="CanvasLayer" instance=ExtResource( 62 )]
 
-[node name="AddUnitWindow" parent="CanvasLayer" index="3" instance=ExtResource( 62 )]
-
-visible = false
-
-[node name="Panel" type="Panel" parent="CanvasLayer" index="4"]
-
+[node name="Panel" type="Panel" parent="CanvasLayer"]
 editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 1574.0
 margin_top = 95.0
 margin_right = 1920.0
 margin_bottom = 974.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_sections_unfolded = [ "Visibility" ]
 
-[node name="Info" type="VBoxContainer" parent="CanvasLayer/Panel" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
+[node name="Info" type="VBoxContainer" parent="CanvasLayer/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
-_sections_unfolded = [ "Focus", "custom_constants" ]
 
-[node name="0" type="HBoxContainer" parent="CanvasLayer/Panel/Info" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="0" type="HBoxContainer" parent="CanvasLayer/Panel/Info"]
 margin_right = 346.0
 margin_bottom = 70.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_constants/separation = 20
-alignment = 0
-_sections_unfolded = [ "custom_constants" ]
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel/Info/0" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Info/0"]
 margin_top = 6.0
 margin_right = 226.0
 margin_bottom = 63.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 63 )
 text = "Austria"
 align = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Num" type="Label" parent="CanvasLayer/Panel/Info/0" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Num" type="Label" parent="CanvasLayer/Panel/Info/0"]
 margin_left = 246.0
 margin_right = 346.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 100, 70 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 63 )
 text = "3"
 align = 1
 valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_constants", "custom_fonts" ]
 
-[node name="1" type="HBoxContainer" parent="CanvasLayer/Panel/Info" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="1" type="HBoxContainer" parent="CanvasLayer/Panel/Info"]
 margin_top = 74.0
 margin_right = 346.0
 margin_bottom = 144.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_constants/separation = 20
-alignment = 0
-_sections_unfolded = [ "custom_constants" ]
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel/Info/1" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Info/1"]
 margin_top = 6.0
 margin_right = 226.0
 margin_bottom = 63.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 63 )
 text = "England"
 align = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Num" type="Label" parent="CanvasLayer/Panel/Info/1" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Num" type="Label" parent="CanvasLayer/Panel/Info/1"]
 margin_left = 246.0
 margin_right = 346.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 100, 70 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 63 )
 text = "3"
 align = 1
 valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_constants", "custom_fonts" ]
 
-[node name="2" type="HBoxContainer" parent="CanvasLayer/Panel/Info" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="2" type="HBoxContainer" parent="CanvasLayer/Panel/Info"]
 margin_top = 148.0
 margin_right = 346.0
 margin_bottom = 218.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_constants/separation = 20
-alignment = 0
-_sections_unfolded = [ "custom_constants" ]
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel/Info/2" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Info/2"]
 margin_top = 6.0
 margin_right = 226.0
 margin_bottom = 63.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 63 )
 text = "France"
 align = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Num" type="Label" parent="CanvasLayer/Panel/Info/2" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Num" type="Label" parent="CanvasLayer/Panel/Info/2"]
 margin_left = 246.0
 margin_right = 346.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 100, 70 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 63 )
 text = "3"
 align = 1
 valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_constants", "custom_fonts" ]
 
-[node name="3" type="HBoxContainer" parent="CanvasLayer/Panel/Info" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="3" type="HBoxContainer" parent="CanvasLayer/Panel/Info"]
 margin_top = 222.0
 margin_right = 346.0
 margin_bottom = 292.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_constants/separation = 20
-alignment = 0
-_sections_unfolded = [ "custom_constants" ]
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel/Info/3" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Info/3"]
 margin_top = 6.0
 margin_right = 226.0
 margin_bottom = 63.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 63 )
 text = "Germany"
 align = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Num" type="Label" parent="CanvasLayer/Panel/Info/3" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Num" type="Label" parent="CanvasLayer/Panel/Info/3"]
 margin_left = 246.0
 margin_right = 346.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 100, 70 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 63 )
 text = "3"
 align = 1
 valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_constants", "custom_fonts" ]
 
-[node name="4" type="HBoxContainer" parent="CanvasLayer/Panel/Info" index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="4" type="HBoxContainer" parent="CanvasLayer/Panel/Info"]
 margin_top = 296.0
 margin_right = 346.0
 margin_bottom = 366.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_constants/separation = 20
-alignment = 0
-_sections_unfolded = [ "custom_constants" ]
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel/Info/4" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Info/4"]
 margin_top = 6.0
 margin_right = 226.0
 margin_bottom = 63.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 63 )
 text = "Italy"
 align = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Num" type="Label" parent="CanvasLayer/Panel/Info/4" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Num" type="Label" parent="CanvasLayer/Panel/Info/4"]
 margin_left = 246.0
 margin_right = 346.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 100, 70 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 63 )
 text = "3"
 align = 1
 valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_constants", "custom_fonts" ]
 
-[node name="5" type="HBoxContainer" parent="CanvasLayer/Panel/Info" index="5"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="5" type="HBoxContainer" parent="CanvasLayer/Panel/Info"]
 margin_top = 370.0
 margin_right = 346.0
 margin_bottom = 440.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_constants/separation = 20
-alignment = 0
-_sections_unfolded = [ "custom_constants" ]
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel/Info/5" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Info/5"]
 margin_top = 6.0
 margin_right = 226.0
 margin_bottom = 63.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 63 )
 text = "Russia"
 align = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Num" type="Label" parent="CanvasLayer/Panel/Info/5" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Num" type="Label" parent="CanvasLayer/Panel/Info/5"]
 margin_left = 246.0
 margin_right = 346.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 100, 70 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 63 )
 text = "4"
 align = 1
 valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_constants", "custom_fonts" ]
 
-[node name="6" type="HBoxContainer" parent="CanvasLayer/Panel/Info" index="6"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="6" type="HBoxContainer" parent="CanvasLayer/Panel/Info"]
 margin_top = 444.0
 margin_right = 346.0
 margin_bottom = 514.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_constants/separation = 20
-alignment = 0
-_sections_unfolded = [ "custom_constants" ]
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel/Info/6" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Info/6"]
 margin_top = 6.0
 margin_right = 226.0
 margin_bottom = 63.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 63 )
 text = "Turkey"
 align = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Num" type="Label" parent="CanvasLayer/Panel/Info/6" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Num" type="Label" parent="CanvasLayer/Panel/Info/6"]
 margin_left = 246.0
 margin_right = 346.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 100, 70 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 63 )
 text = "3"
 align = 1
 valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_constants", "custom_fonts" ]
 
-[node name="Time" type="HBoxContainer" parent="CanvasLayer" index="5"]
-
+[node name="Time" type="HBoxContainer" parent="CanvasLayer"]
 editor/display_folded = true
 anchor_left = 1.0
-anchor_top = 0.0
 anchor_right = 1.0
-anchor_bottom = 0.0
 margin_left = -474.0
 margin_bottom = 70.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
 
-[node name="Year" type="OptionButton" parent="CanvasLayer/Time" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Year" type="OptionButton" parent="CanvasLayer/Time"]
 margin_right = 235.0
 margin_bottom = 70.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 1
 custom_fonts/font = ExtResource( 63 )
-toggle_mode = false
-action_mode = 0
-enabled_focus_mode = 2
-shortcut = null
-group = null
-flat = false
-align = 0
-items = [  ]
-selected = -1
-_sections_unfolded = [ "Columns", "Size Flags", "custom_constants", "custom_fonts" ]
 
-[node name="Season" type="OptionButton" parent="CanvasLayer/Time" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Season" type="OptionButton" parent="CanvasLayer/Time"]
 margin_left = 239.0
 margin_right = 474.0
 margin_bottom = 70.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 1
 custom_fonts/font = ExtResource( 63 )
-toggle_mode = false
-action_mode = 0
-enabled_focus_mode = 2
-shortcut = null
-group = null
-flat = false
-align = 0
-items = [  ]
-selected = -1
-_sections_unfolded = [ "Columns", "Size Flags", "custom_fonts" ]
 
-[node name="GameName" type="TextEdit" parent="CanvasLayer" index="6"]
-
+[node name="GameName" type="TextEdit" parent="CanvasLayer"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -345.0
-margin_top = -100.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
+margin_left = -346.562
+margin_top = -98.4384
+margin_right = -1.56177
+margin_bottom = 1.56165
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_fonts/font = SubResource( 2 )
 custom_colors/background_color = Color( 0.378906, 0.0666046, 0.0666046, 0 )
-text = "game1"
-readonly = false
-highlight_current_line = false
-syntax_highlighting = false
-show_line_numbers = false
-highlight_all_occurrences = false
-override_selected_font_color = false
+text = "fri_game1"
 context_menu_enabled = false
-smooth_scrolling = false
-v_scroll_speed = 80.0
-hiding_enabled = 0
-wrap_lines = false
-caret_block_mode = false
-caret_blink = false
-caret_blink_speed = 0.65
-caret_moving_by_right_click = true
-_sections_unfolded = [ "custom_constants", "custom_fonts" ]
-
 [connection signal="file_selected" from="CanvasLayer/FileDialog" to="." method="_on_FileDialog_file_selected"]
-
 [connection signal="id_pressed" from="CanvasLayer/OrderSelectMenu" to="." method="_on_OrderSelectMenu_id_pressed"]
-
 [connection signal="load_state" from="CanvasLayer/ClickMenu" to="." method="load_dialog"]
-
 [connection signal="new_unit_menu" from="CanvasLayer/ClickMenu" to="." method="_on_ClickMenu_new_unit_menu"]
-
 [connection signal="save_state" from="CanvasLayer/ClickMenu" to="." method="save_state"]
-
 [connection signal="update_regions" from="CanvasLayer/ClickMenu" to="." method="_on_ClickMenu_update_regions"]
-
 [connection signal="add_unit" from="CanvasLayer/AddUnitWindow" to="." method="_on_AddUnitWindow_add_unit"]
-
 [connection signal="item_selected" from="CanvasLayer/Time/Year" to="." method="_on_Year_item_selected"]
-
 [connection signal="item_selected" from="CanvasLayer/Time/Season" to="." method="_on_Season_item_selected"]
-
-

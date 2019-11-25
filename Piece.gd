@@ -7,10 +7,10 @@ enum TYPES {ARMY, FLEET}
 enum MOVES {MOVE, HOLD, SUPPORT, CONVOY, NONE, DISBAND}
 
 var active = false setget set_active
-var nation = ENGLAND setget set_nation
-var type = ARMY setget set_type
-var textures = {ARMY: Rect2(144, 132, 33, 56),
-				FLEET: Rect2(907, 134, 42, 53)}
+var nation = NATIONS.ENGLAND setget set_nation
+var type = TYPES.ARMY setget set_type
+var textures = {TYPES.ARMY: Rect2(144, 132, 33, 56),
+				TYPES.FLEET: Rect2(907, 134, 42, 53)}
 var move = null setget set_move
 var target = null setget set_target
 var start_position = null
@@ -55,7 +55,7 @@ func _on_Piece_input_event(viewport, event, shape_idx):
 			self.active = !self.active
 		if event.button_index == BUTTON_LEFT:
 			if event.pressed:
-				self.move = NONE
+				self.move = MOVES.NONE
 				var mpos = get_global_mouse_position()
 				drag_position = mpos - global_position
 			else:
@@ -68,24 +68,24 @@ func _unhandled_input(event):
 		
 func _draw():
 	match move:
-		HOLD:
+		MOVES.HOLD:
 			var r = Vector2(25, 0)
 			var points = PoolVector2Array()
 			for a in range(7):
 				points.append(r.rotated(a * 2*PI/6))
 			var color = CONSTANTS.COLORS[nation].darkened(0.4)
 			draw_polyline(points, color, 4.0, true)
-		MOVE:
+		MOVES.MOVE:
 			if target:
 				var dest = target - global_position
 				var color = CONSTANTS.COLORS[nation].darkened(0.4)
 				draw_arrow(Vector2() + dest.normalized() * 10, dest, 10, color)
-		SUPPORT:
+		MOVES.SUPPORT:
 			if target:
 				var dest = target - global_position
 				var color = CONSTANTS.COLORS[nation].darkened(0.4)
 				draw_arrow_dashed(Vector2() + dest.normalized() * 10, dest, 8, color)
-		CONVOY:
+		MOVES.CONVOY:
 			if target:
 				var dest = target - global_position
 				var color = CONSTANTS.COLORS[nation].darkened(0.4)

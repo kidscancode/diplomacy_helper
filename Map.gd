@@ -33,7 +33,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed('ui_select'):
 		# clear all orders
 		for piece in $Pieces.get_children():
-			piece.move = NONE
+			piece.move = MOVES.NONE
 			selected = null
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == BUTTON_LEFT:
@@ -53,7 +53,7 @@ func _on_Piece_clicked(piece):
 			selected.active = false
 		selected = piece
 		select_menu.rect_position = select_menu.get_global_mouse_position()
-		select_menu.set_item_disabled(CONVOY, selected.type == selected.TYPES.ARMY)
+		select_menu.set_item_disabled(MOVES.CONVOY, selected.type == selected.TYPES.ARMY)
 		select_menu.popup()
 	else:
 		selected = null
@@ -62,19 +62,19 @@ func _on_OrderSelectMenu_id_pressed(ID):
 	selected.move = ID
 	selected.target = null
 	match ID:
-		NONE:
+		MOVES.NONE:
 			selected.active = false
 			selected = null
-		HOLD:
+		MOVES.HOLD:
 			selected.active = false
 			selected = null
-		MOVE:
+		MOVES.MOVE:
 			select_target = true
-		SUPPORT:
+		MOVES.SUPPORT:
 			select_target = true
-		CONVOY:
+		MOVES.CONVOY:
 			select_target = true
-		DISBAND:
+		MOVES.DISBAND:
 			selected.queue_free()
 			selected = null
 
@@ -169,10 +169,10 @@ func load_state(fname):
 func _on_ClickMenu_update_regions():
 	for region in $Regions.get_children():
 		region.update()
-	score = {CONSTANTS.AUSTRIA: 0, CONSTANTS.ENGLAND: 0,
-			 	CONSTANTS.FRANCE: 0, CONSTANTS.GERMANY: 0,
-			 	CONSTANTS.ITALY: 0, CONSTANTS.RUSSIA: 0,
-			 	CONSTANTS.TURKEY: 0}
+	score = {CONSTANTS.NATIONS.AUSTRIA: 0, CONSTANTS.NATIONS.ENGLAND: 0,
+			 	CONSTANTS.NATIONS.FRANCE: 0, CONSTANTS.NATIONS.GERMANY: 0,
+			 	CONSTANTS.NATIONS.ITALY: 0, CONSTANTS.NATIONS.RUSSIA: 0,
+			 	CONSTANTS.NATIONS.TURKEY: 0}
 	# count score
 	for sup in CONSTANTS.SUPPLY_CENTERS:
 		var val = $Regions.get_node(sup).control
