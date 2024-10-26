@@ -16,7 +16,7 @@ func _ready():
 	season_selected.add_item("Spring", 0)
 	season_selected.add_item("Fall", 1)
 	season_selected.select(0)
-	for i in range(1901, 1910):
+	for i in range(1901, 1915):
 		year_selected.add_item(str(i), i)
 	year_selected.select(0)
 
@@ -170,9 +170,9 @@ func _on_ClickMenu_update_regions():
 	for region in $Regions.get_children():
 		region.update()
 	score = {CONSTANTS.NATIONS.AUSTRIA: 0, CONSTANTS.NATIONS.ENGLAND: 0,
-			 	CONSTANTS.NATIONS.FRANCE: 0, CONSTANTS.NATIONS.GERMANY: 0,
-			 	CONSTANTS.NATIONS.ITALY: 0, CONSTANTS.NATIONS.RUSSIA: 0,
-			 	CONSTANTS.NATIONS.TURKEY: 0}
+				CONSTANTS.NATIONS.FRANCE: 0, CONSTANTS.NATIONS.GERMANY: 0,
+				CONSTANTS.NATIONS.ITALY: 0, CONSTANTS.NATIONS.RUSSIA: 0,
+				CONSTANTS.NATIONS.TURKEY: 0}
 	# count score
 	for sup in CONSTANTS.SUPPLY_CENTERS:
 		var val = $Regions.get_node(sup).control

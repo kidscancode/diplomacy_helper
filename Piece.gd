@@ -17,6 +17,7 @@ var start_position = null
 var drag_position = null
 
 func _ready():
+	$Sprite.material = $Sprite.material.duplicate()
 	modulate = Color(1, 1, 1)
 
 func set_move(_move):
@@ -43,11 +44,11 @@ func set_active(flag):
 	active = flag
 	emit_signal('clicked', self)
 	if active:
-		#$Sprite.material.set_shader_param("outline_width", 2.0)
-		modulate = Color(3, 3, 3)
+		$Sprite.material.set_shader_param("outline_width", 2.0)
+		#modulate = Color(3, 3, 3)
 	else:
-		modulate = Color(1, 1, 1)
-		#$Sprite.material.set_shader_param("outline_width", 0.0)
+		#modulate = Color(1, 1, 1)
+		$Sprite.material.set_shader_param("outline_width", 0.0)
 			
 func _on_Piece_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
